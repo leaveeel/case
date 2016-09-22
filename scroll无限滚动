@@ -8,9 +8,9 @@ var scr =function(a,b,c,d){
 				if($(a).scrollLeft()>(z+b)){
 					$(a).find(c).last().after($(a).find(c).first());
 					$(a).scrollLeft(b);
-				}else if($(a).scrollLeft()<b){
+				}else if($(a).scrollLeft()==0){
 					$(a).find(c).first().before($(a).find(c).last());
-					$(a).scrollLeft(z+b)
+					$(a).scrollLeft(z)
 				}
 		})
 	}else if(d=="top"){
@@ -20,9 +20,9 @@ var scr =function(a,b,c,d){
 			if($(a).scrollTop()>(z+b)){
 				$(a).find(c).last().after($(a).find(c).first());
 				$(a).scrollTop(b);
-			}else if($(a).scrollTop()<b){
+			}else if($(a).scrollTop()==0){
 				$(a).find(c).first().before($(a).find(c).last());
-				$(a).scrollTop(z+b)
+				$(a).scrollTop(z)
 			}
 		})
 	}
