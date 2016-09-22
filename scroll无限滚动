@@ -1,0 +1,30 @@
+//疑问1：能否利用参数自动改变.scrollLeft()/.scrollTop()
+
+var scr =function(a,b,c,d){
+	if(d=="left"){
+		$(a).scrollLeft(b);
+		var z = $(a).find(c).width();
+		$(a).scroll(function(){
+				if($(a).scrollLeft()>(z+b)){
+					$(a).find(c).last().after($(a).find(c).first());
+					$(a).scrollLeft(b);
+				}else if($(a).scrollLeft()<b){
+					$(a).find(c).first().before($(a).find(c).last());
+					$(a).scrollLeft(z+b)
+				}
+		})
+	}else if(d=="top"){
+		$(a).scrollTop(b);
+		var z = $(a).find(c).height();
+		$(a).scroll(function(){
+			if($(a).scrollTop()>(z+b)){
+				$(a).find(c).last().after($(a).find(c).first());
+				$(a).scrollTop(b);
+			}else if($(a).scrollTop()<b){
+				$(a).find(c).first().before($(a).find(c).last());
+				$(a).scrollTop(z+b)
+			}
+		})
+	}
+}
+//scr("scroll元素",偏移量,"内部单个元素","方向");
