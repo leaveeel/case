@@ -1,0 +1,79 @@
+1.在项目中将js代码添加到原项目的.js中不执行 新建.js导入页面后执行 原项目.js中有jquery代码不知道是不是这个原因 其他.js也有js/jquery混用的情况是能同时生效的
+
+
+
+
+
+
+
+//html
+<!doctype html>
+<html>
+    <head>
+        <title>111</title>
+        <meta charset="utf-8" />
+    </head>
+    <body> 
+        <div onclick="throwIframe()" style="height:50px;width:50px;background:red;"></div>
+            <div id="ifr" style="position:fixed;overflow:hidden;display:none;">
+                <ul style="position:absolute;right:0;top:0;overflow:hidden">
+                    <li id="ifrmin" onclick="min()" style="width:20px;height:20px;float:left;margin-right:20px;background-size:100%;background:blue"></li>
+                    <li id="ifrmax" onclick="max()" style="display:none;width:20px;height:20px;float:left;margin-right:20px;background-size:100%;background:black"></li>
+                    <li id="ifrclose" onclick="clo()" style="width:20px;height:20px;float:left;margin-right:20px;background-size:100%;background:pink"></li>
+                </ul>
+            </div>
+    </body>
+    <script type="text/javascript" src="js.js"></script>
+</html>
+
+
+
+
+
+//js
+//页面加载完成执行
+    /*if(document.readyState == "complete"){
+    throwIframe();
+}else {
+    document.onreadystatechange = function()
+    {
+        if (document.readyState == "complete")
+        {
+            throwIframe();
+        }
+    }
+}*/
+    var iframe = document.createElement("iframe");
+    var ifr =   document.getElementById("ifr"); 
+function throwIframe()
+{
+    iframe.src="http://www.baidu.com/";
+    iframe.width="580";
+    iframe.height="510";
+    iframe.style.border="0";
+    iframe.scrolling="no";//iframe内的滚动条
+    ifr.style.display="block";
+    ifr.style.border="1px solid #ccc";
+    ifr.appendChild(iframe);
+    ifr.style.width="580px";
+    ifr.style.height="510px";
+    document.getElementById("ifrmax").style.display="none";
+    document.getElementById("ifrmin").style.display="block";
+}
+
+function min(){
+    ifr.style.width="250px";
+    ifr.style.height="60px";
+    document.getElementById("ifrmin").style.display="none";
+    document.getElementById("ifrmax").style.display="block";
+}
+function max(){
+    ifr.style.width="580px";
+    ifr.style.height="510px";
+    document.getElementById("ifrmax").style.display="none";
+    document.getElementById("ifrmin").style.display="block";
+}
+function clo(){
+    ifr.removeChild(iframe);
+    ifr.style.display="none";
+}
