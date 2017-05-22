@@ -1,0 +1,5 @@
+//分享到qq空间 手机端
+function postToQzone(title, summary, pic, url) {
+  var _u = 'https://h5.qzone.qq.com/q/qzs/open/connect/widget/mobile/qzshare/index.html?page=' + url + '&loginpage=' + '&logintype=qzone&title=' + title + '&url=' + url + '&imageUrl=' + pic ;
+  window.open(_u);
+}
