@@ -1,5 +1,5 @@
 1.在项目中将js代码添加到原项目的.js中不执行 新建.js导入页面后执行 原项目.js中有jquery代码不知道是不是这个原因 其他.js也有js/jquery混用的情况是能同时生效的
-
+2.修改iframe内部样式 document.getElementById("frame").contentWindow.document.getElementsByClassName("header").style.margin="0";// !跨域不可修改
 
 
 
