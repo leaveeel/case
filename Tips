@@ -1,1 +1,0 @@
-1.父元素display:none后js无法读取内部自适应子元素的宽高属性 可以用visibility:hidden替代;
