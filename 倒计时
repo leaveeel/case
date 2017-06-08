@@ -4,14 +4,28 @@
         <meta charset="utf-8"> 
     </head> 
     <body> 
-        <div id="start">
+        <div id="start1">
             <p>asfasopij</p>
             <span id="t_d">00天</span> 
             <span id="t_h">00时</span> 
             <span id="t_m">00分</span> 
             <span id="t_s">00秒</span> 
         </div>
-        <div id="end">
+        <div id="end1">
+            <p>asfasopij</p>
+            <span id="t_d">00天</span> 
+            <span id="t_h">00时</span> 
+            <span id="t_m">00分</span> 
+            <span id="t_s">00秒</span> 
+        </div>
+        <div id="start2">
+            <p>asfasopij</p>
+            <span id="t_d">00天</span> 
+            <span id="t_h">00时</span> 
+            <span id="t_m">00分</span> 
+            <span id="t_s">00秒</span> 
+        </div>
+        <div id="end2">
             <p>asfasopij</p>
             <span id="t_d">00天</span> 
             <span id="t_h">00时</span> 
@@ -19,7 +33,7 @@
             <span id="t_s">00秒</span> 
         </div>
         <script type="text/javascript"> 
-var time = function (data,id){
+var time1 = function (data,id){
     function getRTime(){ 
         var EndTime= new Date(data); //截止时间 
         var NowTime = new Date(); 
@@ -29,7 +43,10 @@ var time = function (data,id){
         var h=Math.floor(t/1000/60/60%24); 
         var m=Math.floor(t/1000/60%60); 
         var s=Math.floor(t/1000%60);
-
+        if(d<10) d="0"+d;
+        if(h<10) h="0"+h;
+        if(m<10) m="0"+m;
+        if(s<10) s="0"+s;
         document.getElementById(id).getElementsByTagName("span")[0].innerHTML = d + "天"; 
         document.getElementById(id).getElementsByTagName("span")[1].innerHTML = h + "时"; 
         document.getElementById(id).getElementsByTagName("span")[2].innerHTML = m + "分"; 
@@ -37,8 +54,35 @@ var time = function (data,id){
     } 
     setInterval(getRTime); 
 }
-new time('2017/6/7 12:00:00','start');
-new time('2017/6/8 12:00:00','end');
+new time1('2017/6/7 12:00:00','start1');
+new time1('2017/6/8 12:00:00','end1');
+
+//到0停止，不显示天
+var time2 = function (data,id){
+    function getRTime(){ 
+        var EndTime= new Date(data); //截止时间 
+        var NowTime = new Date(); 
+        var t =EndTime.getTime() - NowTime.getTime(); 
+        if(t>=0){
+            //var d=Math.floor(t/1000/60/60/24); 
+            //var h=Math.floor(t/1000/60/60%24); 
+            var h=Math.floor(t/1000/60/60); 
+            var m=Math.floor(t/1000/60%60); 
+            var s=Math.floor(t/1000%60);
+            //if(d<10) d="0"+d;
+            if(h<10) h="0"+h;
+            if(m<10) m="0"+m;
+            if(s<10) s="0"+s;
+            //document.getElementById(id).getElementsByTagName("span")[0].innerHTML = d; 
+            document.getElementById(id).getElementsByTagName("span")[0].innerHTML = h; 
+            document.getElementById(id).getElementsByTagName("span")[1].innerHTML = m; 
+            document.getElementById(id).getElementsByTagName("span")[2].innerHTML = s; 
+        }
+    }
+    setInterval(getRTime); 
+}
+new time2('2017/6/7 14:00:00','start2');
+new time2('2017/6/8 12:00:00','end2');
         </script> 
     </body> 
 </html>
