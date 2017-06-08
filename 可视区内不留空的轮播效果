@@ -1,0 +1,276 @@
+//保证可视区元素放满，不影响视觉效果
+//连续点击按钮会出现移动过头的情况 stop并不起作用，待解决
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <script type="text/javascript" src="jquery.js"></script>
+    </head>
+<style>
+.special .spcont .conbox{
+    width: 995px;
+}
+.special .spcont .conbox .left{
+    width: 26px;
+    height: 44px;
+    background: #000;
+    left: 10px;
+    top: 50%;
+    margin-top: -22px;
+    z-index: 9;
+    cursor: pointer;
+}
+.special .spcont .conbox .right{
+    width: 26px;
+    height: 44px;
+    background: #000;
+    right: 10px;
+    top: 50%;
+    margin-top: -22px;
+    z-index: 9;
+    cursor: pointer;
+}
+.special .spcont .conbox li{
+    border:1px solid #ccc;
+    margin:0 5px;
+}
+.special .spcont .conbox li a{
+    width: 238px;
+    height: 298px;
+}
+.special .spcont .conbox img{
+    margin:auto;
+}
+.special .spcont .class2 .text{
+    width: 228px;
+    height: 90px;
+    padding: 10px 5px 0 5px;
+    background: #f5f5f5;
+    font-weight: normal;
+}
+.special .spcont .class2 .text h3{
+    font-size: 20px;
+    line-height: 20px;
+    color: rgb(255, 0, 0);
+    font-weight: normal;
+    white-space:nowrap;
+}
+.special .spcont .class2 .text h3 em{
+    font-size: 16px;
+    color: rgb(153, 153, 153);
+    margin-left: 10px;
+}
+.special .spcont .class2 .text p{
+    font-size: 16px;
+    line-height: 28px;
+    margin-top: 3px;
+    white-space:nowrap;
+}
+.special .spcont .class2 .text span{
+    width: 160px;
+    height: 30px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    line-height: 30px;
+    background: #f00;
+    border-radius: 3px;
+    margin: auto;
+}
+.fl{
+  float:left;
+}
+.db{
+  display:block;
+}
+.oh{
+  overflow:hidden;
+}
+.fr{
+  float:right;
+}
+.pr{
+  position:relative;
+}
+.pa{
+  position:absolute;
+}
+.tac{
+  text-align:center;
+}
+</style>
+    <body>
+        <div class="special fl">
+            <div class="spcont spcont4 oh">
+                <div class="conbox fr pr oh">
+                    <span class="pa left db"></span>
+                    <span class="pa right db"></span>
+                    <ul class="oh class2">
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">
+                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
+                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
+                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+for(var i=0;i<4;i++){
+    var thiscont=$(".special .spcont").eq(i).find(".conbox");
+    var thisul=thiscont.find("ul");
+    var splen=thisul.find("li").length;
+    thisul.width(splen*(240+10)-10);
+    thisul.find("li").eq(0).css("margin-left",0).parent().find("li").eq(splen-1).css("margin-right",0);
+
+    thiscont.find(".right").click(function(){
+        var ul=$(this).siblings("ul");
+        var len=ul.find("li").length;
+        if(parseInt(ul.css("margin-left"))>-1000*(Math.floor(len/4)-1)){
+            ul.stop(true,false).animate({"margin-left":"-=1000"});
+        }else if(parseInt(ul.css("margin-left"))==-1000*(Math.floor(len/4)-1)){
+            ul.stop(true,false).animate({"margin-left":"-="+len%4*250});
+        }else if(parseInt(ul.css("margin-left"))<-1000*(Math.floor(len/4)-1)){
+            ul.stop(true,false).animate({"margin-left":0});
+        }
+    });
+    thiscont.find(".left").click(function(){
+        var ul=$(this).siblings("ul");
+        var len=ul.find("li").length;
+        if(parseInt(ul.css("margin-left"))<-1000){
+            ul.stop(true,false).animate({"margin-left":"+=1000"});
+        }else if(parseInt(ul.css("margin-left"))>-1000&&parseInt(ul.css("margin-left"))<0){
+            ul.stop(true,false).animate({"margin-left":"+="+len%4*250});
+        }else if(parseInt(ul.css("margin-left"))>=0){
+            ul.stop(true,false).animate({"margin-left":-(1000*(Math.floor(len/4)-1)+len%4*250)});
+        }
+    });
+}
+        </script>
+    </body>
+</html>
