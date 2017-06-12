@@ -6,31 +6,31 @@
     <body> 
         <div id="start1">
             <p>asfasopij</p>
-            <span id="t_d">00天</span> 
-            <span id="t_h">00时</span> 
-            <span id="t_m">00分</span> 
-            <span id="t_s">00秒</span> 
+            <span>00天</span> 
+            <span>00时</span> 
+            <span>00分</span> 
+            <span>00秒</span> 
         </div>
         <div id="end1">
             <p>asfasopij</p>
-            <span id="t_d">00天</span> 
-            <span id="t_h">00时</span> 
-            <span id="t_m">00分</span> 
-            <span id="t_s">00秒</span> 
+            <span>00天</span> 
+            <span>00时</span> 
+            <span>00分</span> 
+            <span>00秒</span> 
         </div>
         <div id="start2">
             <p>asfasopij</p>
-            <span id="t_d">00天</span> 
-            <span id="t_h">00时</span> 
-            <span id="t_m">00分</span> 
-            <span id="t_s">00秒</span> 
+            <span>00天</span> 
+            <span>00时</span> 
+            <span>00分</span> 
+            <span>00秒</span> 
         </div>
         <div id="end2">
             <p>asfasopij</p>
-            <span id="t_d">00天</span> 
-            <span id="t_h">00时</span> 
-            <span id="t_m">00分</span> 
-            <span id="t_s">00秒</span> 
+            <span>00天</span> 
+            <span>00时</span> 
+            <span>00分</span> 
+            <span>00秒</span> 
         </div>
         <script type="text/javascript"> 
 var time1 = function (data,id){
