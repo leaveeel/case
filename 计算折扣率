@@ -1,0 +1,24 @@
+<li class="fl pr">
+    <a class="db" href="">
+        <img class="db" src="" width="200" height="200">
+        <span class="db oh">
+            <p class="nowp fl red">￥<em>10000</em></p>
+            <s class="oldp fr">￥<em>54165</em></s>
+            <h4 class="tac">秒杀去</h4>
+        </span>
+    </a>
+    <span class="icon db pa">
+        <p class="tac">速抢</p>
+        <i class="tac db oh"></i>
+    </span>
+</li>
+
+for(var x=0;x<$("ul li").length;x++){
+    var sp1i=$("ul li").eq(x).find("i");
+    var sp1n=sp1i.parent(".icon").siblings("a").find(".nowp em").text();
+    var sp1o=sp1i.parent(".icon").siblings("a").find(".oldp em").text();
+    var off=sp1n/sp1o*10;
+    sp1i.html(off.toFixed(1)+"折");
+}
+
+//off.toFixed(x)  取x位小数
