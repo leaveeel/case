@@ -1,0 +1,94 @@
+<style>
+span {
+    width: 646px;
+    padding: 0 30px;
+    height: 58px;
+    line-height: 58px;
+    border: 1px solid #999;
+    margin: auto;
+    background: url(../img/icon5.png) no-repeat center right 30px;
+    font-size: 20px;
+    margin-bottom: 60px;
+}
+p {
+    height: 58px;
+    width: 646px;
+    padding: 0 30px;
+    line-height: 58px;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+}
+p.default {
+    color: rgb(204, 204, 204);
+    z-index: 2;
+}
+ul {
+    top: 60px;
+    left: -1px;
+    width: 706px;
+    border-right: 1px solid #999;
+    border-left: 1px solid #999;
+    background-color: #fff;
+    z-index: 5;
+}
+ul li {
+    border-bottom: 1px solid #999;
+    width: 646px;
+    padding: 0 30px;
+    height: 58px;
+    line-height: 58px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+.db {
+    display: block;
+}
+.pr {
+    position: relative;
+}
+.pa {
+    position: absolute;
+}
+.oh {
+    overflow: hidden;
+}
+.fl {
+    float: left;
+}
+.hide {
+    display: none;
+}
+</style>
+
+
+
+<span class="db pr">
+    <p class="pa default">请选择</p>
+    <p class="pa write"></p>
+    <ul class="oh pa hide">
+        <li class="fl">1</li>
+        <li class="fl">2</li>
+        <li class="fl">3</li>
+        <li class="fl">4</li>
+        <li class="fl">5</li>
+        <li class="fl">6</li>
+    </ul>
+</span>
+
+
+
+
+<script>
+$("p").click(function(){
+    if($(this).siblings("ul").is(":hidden")){
+        $(this).siblings("ul").slideDown(200);
+    }else {
+        $(this).siblings("ul").slideUp(200);
+    }
+});
+$("ul li").click(function(){
+    var text=$(this).text();
+    $(this).parent().siblings(".write").text(text).siblings(".default").hide().siblings("ul").slideUp(200);
+});
+</script>
