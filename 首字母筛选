@@ -1,5 +1,6 @@
 //.trim() 去除字符串首尾空格
 //.substring() 获取字符 e.g.  hello->substring(0,1)->h   hello->substring(2,5)->llo
+//.toUpperCase() 小写字符转大写 >> .toLowerCase() 大写转小写
 //isNaN() 是否是非数字值
 
 <div>
@@ -19,7 +20,7 @@
 
 $("a").click(function() {
     for(var i = 0; i < $("ul li").length; i++){
-        if ($("ul li").eq(i).text().trim().substring(0, 1) != $(this).text()) {
+        if ($("ul li").eq(i).text().trim().substring(0, 1).toUpperCase() != $(this).text().toUpperCase()) {
             $("ul li").eq(i).hide();
         } else { $("ul li").eq(i).show(); }
     }
