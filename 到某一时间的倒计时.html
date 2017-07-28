@@ -20,14 +20,12 @@
         </div>
         <div id="start2">
             <p>asfasopij</p>
-            <span>00天</span> 
             <span>00时</span> 
             <span>00分</span> 
             <span>00秒</span> 
         </div>
         <div id="end2">
             <p>asfasopij</p>
-            <span>00天</span> 
             <span>00时</span> 
             <span>00分</span> 
             <span>00秒</span> 
@@ -73,16 +71,16 @@ var time2 = function (data,id){
             if(h<10) h="0"+h;
             if(m<10) m="0"+m;
             if(s<10) s="0"+s;
-            //document.getElementById(id).getElementsByTagName("span")[0].innerHTML = d; 
-            document.getElementById(id).getElementsByTagName("span")[0].innerHTML = h; 
-            document.getElementById(id).getElementsByTagName("span")[1].innerHTML = m; 
-            document.getElementById(id).getElementsByTagName("span")[2].innerHTML = s; 
+            //document.getElementById(id).getElementsByTagName("span")[0].innerHTML = d + "天"; 
+            document.getElementById(id).getElementsByTagName("span")[0].innerHTML = h + "时"; 
+            document.getElementById(id).getElementsByTagName("span")[1].innerHTML = m + "分"; 
+            document.getElementById(id).getElementsByTagName("span")[2].innerHTML = s + "秒"; 
         }
     }
     setInterval(getRTime); 
 }
-new time2('2017/6/7 14:00:00','start2');
-new time2('2017/6/8 12:00:00','end2');
+new time2('2017/8/7 14:00:00','start2');
+new time2('2017/8/8 12:00:00','end2');
         </script> 
     </body> 
 </html>

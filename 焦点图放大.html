@@ -1,0 +1,166 @@
+<!--
+    1.暂时没有加上定时器，可以根据第一篇修改；
+    2.touch：发现首次滑动后点击也会触发滑动效果，经检查是touchend记录了数据并没有清空，又到之前做的demo里确认了问题，暂时没有找到解决方法；
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href="css/public.css" rel="stylesheet" type="text/css" />
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <style>
+.condition{width:750px;}
+.condition .bigbox{width:750px;height:345px;overflow:hidden;}
+.condition .box{width:1926px;margin-left:-487px;}
+.condition .box li{margin:auto;margin-top:37px;width:432px;height:274px;float:left;position:relative;z-index:1;opacity:0.5}
+.condition>span{cursor:pointer;z-index:11;top:133px;width:40px;height:40px;line-height:40px;font-size:20px;background:#000;color:#fff;}
+.condition .right{right:20px;}
+.condition .left{left:20px;}
+.condition .list{width:160px;margin:auto;margin-top:18px;}
+.condition .list li{width:24px;height:24px;background:#bababa;color:#fff;font-size:18px;margin:0 4px;border-radius:50%;text-align:center;}
+.condition .list li.cho{background:#fcb559;}
+        </style>
+    </head>
+    <body>
+        <div class="condition pr">
+            <div class="bigbox pr" id="conBanner">
+                <div class="box">
+                    <li>
+                        <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" width=100% />
+                    </li>
+                    <li>
+                        <img src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width=100% />
+                    </li>
+                    <li>
+                        <img src="http://img.ads.csdn.net/2017/201707251714542351.jpg" width=100% />
+                    </li>
+                    <li class="fir">
+                        <img src="http://www.w3school.com.cn/ui2017/bg.png" width=100% />
+                    </li>
+                    <li>
+                        <img src="https://cn.vuejs.org/images/logo.png" width=100% />
+                    </li>
+                </div>
+            </div>
+            <span class="db right pa tac">→</span>
+            <span class="db left pa tac">←</span>
+            <ul class="oh list">
+                <li class="fl cho">1</li>
+                <li class="fl">2</li>
+                <li class="fl">3</li>
+                <li class="fl">4</li>
+                <li class="fl">5</li>
+            </ul>
+        </div>
+        <script>
+//排序
+$(".box li").first().before($(".box li").last());
+$(".box li").first().before($(".box li").last());
+$(".box li").eq(2).css({"width":"544px","height":"345px","z-index":"2","margin-top":"0px","margin-left":"-272px","opacity":"1"});
+$(".box li").eq(3).css({"margin-left":"-272px"});
+//按钮点击效果
+$(".left").click(function(){
+    $(".box li").eq(1).stop().animate({"width":"544px","height":"345px","margin-top":"0px","margin-left":"-272px","z-index":"2","opacity":"1"},500);
+    $(".box li").eq(2).stop().animate({"width":"432px","height":"274px","margin-top":"37px","margin-left":"-272px","z-index":"1","opacity":"0.5"},500);
+    $(".box").stop().animate({"margin-left":"-55"},500,function(){
+        $(".box li").first().before($(".box li").last());
+        $(".box li").css({"margin-left":"0px","margin-top":"37px"});
+        $(".box li").eq(2).css({"width":"544px","height":"345px","z-index":"2","margin-top":"0px","margin-left":"-272px"});
+        $(".box li").eq(3).css({"margin-left":"-272px"});
+        $(".box").css({"margin-left":"-487px"});
+        var i = -$(".fir").index();
+        $(".list li").eq(i).addClass("cho").siblings().removeClass("cho");
+    });
+});
+$(".right").click(function(){
+    $(".box li").eq(4).animate({"margin-left":"-272px"},500);
+    $(".box li").eq(3).stop().animate({"width":"544px","height":"345px","margin-top":"0px","margin-left":"-272px","z-index":"2","opacity":"1"},500);
+    $(".box li").eq(2).stop().animate({"width":"432px","height":"274px","margin-top":"37px","margin-left":"0","z-index":"1","opacity":"0.5"},500);
+    $(".box").stop().animate({"margin-left":"-=432px"},500,function(){
+        $(".box li").last().after($(".box li").first());
+        $(".box li").css({"margin-left":"0px","margin-top":"37px"});
+        $(".box li").eq(3).css({"margin-left":"-272px"});
+        $(".box li").eq(2).css({"width":"544px","height":"345px","z-index":"2","margin-top":"0px","margin-left":"-272px"});
+        $(".box").css({"margin-left":"-487px"});
+        var i = -$(".fir").index();
+        $(".list li").eq(i).addClass("cho").siblings().removeClass("cho");
+    });
+});
+//移动端滑动效果
+var startX, endX;
+var showADID = 1;
+document.getElementById("conBanner").addEventListener("touchstart",touchStart,false);
+document.getElementById("conBanner").addEventListener("touchmove",touchMove,false);
+document.getElementById("conBanner").addEventListener("touchend",touchEnd,false);
+function touchStart(event){
+    var touch = event.touches[0];
+    startY=touch.pageY;
+    startX=touch.pageX;
+}
+function touchMove(event){
+    var touch = event.touches[0];
+    endX = touch.pageX;
+}
+function touchEnd(event){
+    var line = startX-endX;
+    if(line>100){
+        $(".box li").eq(4).animate({"margin-left":"-272px"},500);
+        $(".box li").eq(3).stop().animate({"width":"544px","height":"345px","margin-top":"0px","margin-left":"-272px","z-index":"2","opacity":"1"},500);
+        $(".box li").eq(2).stop().animate({"width":"432px","height":"274px","margin-top":"37px","margin-left":"0","z-index":"1","opacity":"0.5"},500);
+        $(".box").stop().animate({"margin-left":"-=432px"},500,function(){
+            $(".box li").last().after($(".box li").first());
+            $(".box li").css({"margin-left":"0px","margin-top":"37px"});
+            $(".box li").eq(3).css({"margin-left":"-272px"});
+            $(".box li").eq(2).css({"width":"544px","height":"345px","z-index":"2","margin-top":"0px","margin-left":"-272px"});
+            $(".box").css({"margin-left":"-487px"});
+            var i = -$(".fir").index();
+            $(".list li").eq(i).addClass("cho").siblings().removeClass("cho");
+        });
+    }else if(line<-100){
+        $(".box li").eq(1).stop().animate({"width":"544px","height":"345px","margin-top":"0px","margin-left":"-272px","z-index":"2","opacity":"1"},500);
+        $(".box li").eq(2).stop().animate({"width":"432px","height":"274px","margin-top":"37px","margin-left":"-272px","z-index":"1","opacity":"0.5"},500);
+        $(".box").stop().animate({"margin-left":"-55px"},500,function(){
+            $(".box li").first().before($(".box li").last());
+            $(".box li").css({"margin-left":"0px","margin-top":"37px"});
+            $(".box li").eq(2).css({"width":"544px","height":"345px","z-index":"2","margin-top":"0px","margin-left":"-272px"});
+            $(".box li").eq(3).css({"margin-left":"-272px"});
+            $(".box").css({"margin-left":"-487px"});
+            var i = -$(".fir").index();
+            $(".list li").eq(i).addClass("cho").siblings().removeClass("cho");
+        });
+    }
+}
+//数字点击效果
+$(".list li").click(function(){
+    var o_index=$(".list li.cho").index();
+    var index=$(this).index()-o_index;
+    if(index>0){
+        $(".box li").eq(3).stop().animate({"width":"544px","height":"345px","margin-top":"0px","z-index":"2","opacity":"1"},500);
+        $(".box li").eq(2).stop().animate({"width":"432px","height":"274px","margin-top":"37px","margin-left":"0","z-index":"1","opacity":"0.5"},500);
+        $(".box").stop().animate({"margin-left":(-432*(index+1)-55)},500,function(){
+            for(var n=0;n<index;n++){
+                $(".box li").last().after($(".box li").first());
+            }
+            $(".box li").css({"margin-left":"0px","margin-top":"37px","width":"432px","height":"274px","z-index":"1","opacity":"0.5"});
+            $(".box li").eq(3).css({"margin-left":"-272px"});
+            $(".box li").eq(2).css({"width":"544px","height":"345px","z-index":"2","margin-top":"0px","margin-left":"-272px","opacity":"1"});
+            $(".box").css({"margin-left":"-487px"});
+        })
+    }else if(index<0){
+        $(".box li").eq(1).stop().animate({"width":"544px","height":"345px","margin-top":"0px","z-index":"2","opacity":"1","margin-left":"-272px"},500);
+        $(".box li").eq(2).stop().animate({"width":"432px","height":"274px","margin-top":"37px","margin-left":"0","z-index":"1","opacity":"0.5","margin-left":"-272px"},500);
+        $(".box").stop().animate({"margin-left":(-432*(index+1))-55},500,function(){
+            for(var n=0;n>index;n--){
+                $(".box li").first().before($(".box li").last());
+            }
+            $(".box li").css({"margin-left":"0px","margin-top":"37px","width":"432px","height":"274px","z-index":"1","opacity":"0.5"});
+            $(".box li").eq(3).css({"margin-left":"-272px"});
+            $(".box li").eq(2).css({"width":"544px","height":"345px","z-index":"2","margin-top":"0px","margin-left":"-272px","opacity":"1"});
+            $(".box").css({"margin-left":"-487px"});
+        })
+    }
+    $(this).addClass("cho").siblings().removeClass("cho");
+})
+        </script>
+    </body>
+</html>

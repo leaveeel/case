@@ -1,0 +1,596 @@
+﻿<!--
+    1.引用资源库的jquery文件jqprint报错，原因未知；
+    2.按钮打印仅打印#print_show的内容，快捷键打印未试；
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>佛阳子管理后台</title>
+        <link  rel="stylesheet" type="text/css" href="../css/public.css" />
+        <script type="text/javascript" src="jquery-1.7.1.js"></script>
+        <script type="text/javascript" src="jquery.jqprint.js"></script>
+        <style type="text/css">
+img
+{
+    border:0px;
+    vertical-align:middle;
+    padding:0px;
+    margin:0px;
+}
+button
+{
+    font-family:"Arial","Tahoma","微软雅黑","雅黑";
+    border:0px;
+    vertical-align:middle;
+    margin:8px;
+    line-height:18px;	
+    font-size:18px;
+}
+.pbtn1
+{	
+    border:solid 2px #dcdcdc;
+    padding:4px 14px 4px 34px;
+    color:#959595;
+    cursor:pointer;
+    background:url("..//images/ok.gif") no-repeat 8px center;
+    background-color:#f9f9f9;
+}
+
+h3{
+    color:#000;
+    font-size:14px;
+    margin-left:3px;
+    font-weight:normal;
+}
+em{
+    color:#ddd;
+    font-size:12px;
+    margin:0 5px;
+}
+.left span{
+    font-size:16px;
+    color:#000;
+    line-height:30px;
+    padding-left:3px;
+}
+.box table tr{
+    border-bottom:1px solid #ddd;
+    display:block;
+}
+p{
+    font-size:14px;
+    position:relative;
+    z-index:11;
+}
+td{
+}
+.box table{
+    padding:0;
+    border-top:1px solid #000;
+    border-left:20px solid #333;
+    margin-bottom:5px;
+}
+.right{
+    -webkit-transform-origin-x: 0; 
+    -webkit-transform: scale(1);
+    padding-left:5px;
+}
+th{
+    left:-20px;
+    top:0;
+    width:20px;
+    line-height:20px;
+    color:#fff;
+    background:red;
+}
+h2{
+    font-size:16px;
+    font-weight:normal;
+    line-height:20px;
+}
+b{
+    font-size:12px;
+    font-weight:normal;
+    line-height:12px;
+}
+h4{
+    color:#ddd;
+    font-size:14px;
+    margin-left:3px;
+    font-weight:normal;
+    font-style:italic;
+}
+
+h5{
+    color:#000;
+    font-size:12px;
+    margin-left:3px;
+    font-weight:normal;
+}
+.leftop td{
+    border-right:1px solid #666;
+    border-bottom:1px solid #666;
+}
+.font16{
+    font-size:16px;
+}
+        </style>
+    </head>
+    <body class="pr" style=";">
+        <div style="width:1015px; height:491px; top:119px; left:0;" id="print_show" class="pa" >
+            <p class="font16 sendcompany pa" style="top:7px; left:179px;">ahouifhoa</p><!--寄件单位名称-->
+            <p class="font16 sender pa" style="top:7px; left:434px;"></p><!--寄件人-->
+            <p class="font16 sendaddress pa" style="top:39px; left:110px;"></p><!--寄件人地址-->
+            <p class="font16 sendphone pa" style="top:71px; left:128px;"></p><!--寄件人联系电话-->
+            <input type="checkbox" checked="false" class="sms pa" style="top:77px; left:297px; display:block;"><!--签收短信通知-->
+            <p class="font16 rececompany pa" style="top:110px; left:179px;"></p><!--收件单位名称-->
+            <p class="font16 receiver pa" style="top:110px; left:442px;"></p><!--收件人-->
+            <p class="font16 province pa" style="top:142px; left:110px;"></p><!--收件人所在省-->
+            <p class="font16 city pa" style="top:142px; left:217px;"></p><!--市-->
+            <p class="font16 district pa" style="top:142px; left:296px;"></p><!--区县-->
+            <p class="font16 road pa" style="top:174px; left:23px;"></p><!--路-->
+            <p class="font16 receaddress pa" style="top:174px; left:281px"></p><!--详细地址-->
+            <p class="font16 recephone pa" style="top:206px; left:128px;"></p><!--收件人联系电话-->
+            <p class="font16 quantity pa" style="top:305px; left:230px;"></p><!--托寄物数量-->
+            <p class="font16 value pa" style="top:305px; left:397px;"></p><!--声明价值-->
+            <p class="font16 diml pa" style="top:346px; left:83px;"></p></td><!--长-->
+        <p class="font16 dimw pa" style="top:346px; left:151px;"></p><!--宽-->
+        <p class="font16 dimh pa" style="top:346px; left:219px;"></p><!--高-->
+        <p class="font16 dimweight pa" style="top:346px; left:383px;"></p><!--重量-->
+        <p class="font16 sendersign pa" style="top:424px; left:119px;"></p><!--寄件人签署-->
+        <p class="font16 receiversign pa" style="top:424px; left:355px;"></p><!--收件人签署-->
+        <p class="font16 sendm pa" style="top:455px; left:89px;"></p><!--寄件月-->
+        <p class="font16 sendd pa" style="top:455px; left:148px;"></p><!--寄件日-->
+        <p class="font16 sendh pa" style="top:455px; left:204px;"></p><!--寄件时-->
+        <p class="font16 recem pa" style="top:455px; left:334px;"></p><!--收件月-->
+        <p class="font16 reced pa" style="top:455px; left:393px;"></p><!--收件日-->
+        <p class="font16 receh pa" style="top:455px; left:449px;"></p><!--收件时-->
+        <input type="checkbox" checked="false" class="sendpay pa" style="top:371px; left:535px; display:none;"><!--付款方式 寄方付-->
+        <input type="checkbox" checked="false" class="recepay pa" style="top:371px; left:623px; display:none;"><!--收方付-->
+        <input type="checkbox" checked="false" class="thirdpay pa" style="top:371px; left:711px; display:none;"><!--第三方付-->
+        <p class="font16 thirdadd pa" style="top:360px;left:895px;"></p><!--第三方付款地区-->
+        <p class="font16 monthlyno pa" style="top:404px; left:693px;"></p><!--月结账号-->
+        <p class="font16 remark pa" style="top:461px; left:515px;"></p><!--备注-->
+        </div>
+        <table class="title" style="width:1015px">
+            <tr>
+                <td style="padding-left:20px;" width="363">
+                    <img src="a.png">
+                    <h5>www.sf-express.com</h5>
+                    <h3>全国统一服务热线 95338</h3>
+                    <h5>全国服务监督电话（0755）8315 1111</h5>
+                </td>
+                <td width=350></td>
+                <td width=50>
+                    <table>
+                        <tr>
+                            <td style="border:1px solid #000; width:15px; height:15px"></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid #000; width:15px; height:15px"></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid #000; width:15px; height:15px; background:#000"></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid #000; width:15px; height:15px"></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid #000; width:15px; height:15px"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td width=262>
+                    <table width="262" cellspacing="0" cellpadding="0" style="background:rgba(255,189,189,0.3); border-left:1px solid #666; border-top:1px solid #666" class="leftop" border=0>
+                        <tr height="35">
+                            <td colspan="3" align="left" valign="top">
+                                <h5>收件员<em>Picked uo by</em></h5>
+                            </td>
+                            <td colspan="3" align="left" valign="top">
+                                <h5>派件员<em>Delivered by</em></h5>
+                            </td>
+                        </tr>
+                        <tr height="80">
+                            <td colspan="2" align="left" valign="top">
+                                <h5>原寄地</h5><em>Origin</em>
+                            </td>
+                            <td colspan="2" align="left" valign="top">
+                                <h5>目的地</h5><em>Destination</em>
+                            </td>
+                            <td colspan="2" align="left" valign="top" class="pr">
+                                <h3>自取</h3><em>Self Pickup</em><input class="pa" style="right:0; margin-top:-10px" type="checkbox">
+                                <h3>自寄</h3><em>Self Drop-off</em><input class="pa" style="right:0; margin-top:-10px" type="checkbox">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table class="box" border=0 cellspacing="0" cellpadding="0" style="">
+            <tr>
+                <td class="left" align="left;" valign="top">
+                    <table class="pr" width="505" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th class="pa">1</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span><a class="dib">寄件</a><h3 class="dib">单位名称<em>Company</em></h3><p class="dib font16 " style="width:160px; white-space:nowrap"></p><h3 class="dib">寄件人<em>Sender</em></h3><p class="dib font16 " style="width:70px; white-space:nowrap"></p></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span><h3 class="dib">地址<em>Address</em></h3><p class="dib font16 " style="width:300px; white-space:nowrap"></p></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span><h3 class="dib">联系电话<em>Phone</em></h3><p class="dib font16" style="width:169px; white-space:nowrap"></p><input type="checkbox" checked="false"></input><h3 class="dib">签收短信通知<em>SMS Notification</em></h3></span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="pr" width="505" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th class="pa">2</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>收件<h3 class="dib">单位名称<em>Company</em></h3><p class="dib font16 " style="width:160px; white-space:nowrap"></p><h3 class="dib">收件人<em>Receiver</em></h3><p class="dib font16 " style="width:60px; white-space:nowrap"></p></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span><h3 class="dib">地址<em>Address</em></h3><p class="dib font16 " style="width:30px; white-space:nowrap"></p><h3 class="dib">省<em>Province</em></h3><p class="dib font16 " style="width:30px; white-space:nowrap"></p><h3 class="dib">市<em>City</em></h3><p class="dib font16 " style="width:30px; white-space:nowrap"></p><h3 class="dib">区（县）<em>District(County)</em></h3></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span><p class="dib font16 " style="width:117px; white-space:nowrap"></p><h3 class="dib">路（街）<em>Road(Street)</em></h3><p class="dib font16 " style="width:205px;white-space:nowrap"></p></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span><h3 class="dib">联系电话<em>Phone</em></h3><p class="dib font16 " style="width:150px; white-space:nowrap"></p></span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="pr" width="505" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th class="pa">3</th>
+                        </tr>
+                        <tr style="margin-bottom:5px; border:none;">
+                            <td rowspan="2" style="width:180px;" ALIGN="left" VALIGN="top">
+                                <h2>托寄物详细资料</h2><b class="db">Full Description of Contents</b>
+                            </td>
+                            <td colspan=3 height=52></td>
+                            <td colspan="3" class="pa" style="margin-left:150px;top: 0;width:350px; font-size:18px; color:red;" height="52">价值超过2万元的物品，请如实声明，否则按不超过2万元的物品处理，详见背书条款</td>
+                        </tr>
+                        <tr>
+                            <td width="150"></td>
+                            <td><h3>数量</h3><em>Quantity</em></td>
+                            <td width="70"><p class="font16 " style="width:50px; white-space:nowrap"></p></td>
+                            <td><h3>声明价值</h3><em>Declared Value</em></td>
+                            <td width="70"><p class="font16 " style="width:50px; white-space:nowrap"></p></td>
+                            <td><h3>元</h3><em>CNY</em></td>
+                        </tr>
+                        <tr style="padding:5px 0">
+                            <td><h3>尺寸</h3><em>DIM</em></td>
+                            <td><em class="db">长/</em><em>L/</em></td>
+                            <td><p class="font16 " style="width:40px; white-space:nowrap"></p></td>
+                            <td><em class="db">宽/</em><em>W/</em></td>
+                            <td><p class="font16 " style="width:40px; white-space:nowrap"></p></td>
+                            <td><em class="db">高/</em><em>H/</em></td>
+                            <td><p class="font16 " style="width:40px; white-space:nowrap"></p></td>
+                            <td style="width:44px;"><h3>厘米</h3><em>cm</em></td>
+                            <td><h3>体积重量</h3><em>DIM Weight</em></td>
+                            <td><p class="font16 " style="width:88px; white-space:nowrap"></p></td>
+                            <td><h3>公斤</h3><em>kgs</em></td>
+                        </tr>
+                    </table>
+                    <table class="pr" width="505" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th class="pa">4</th>
+                        </tr>
+                        <tr style="border:none;">
+                            <td rowspan="2" style="" ALIGN="left" VALIGN="top">
+                                <h2>签署</h2><b class="db">Signature</b>
+                            </td>
+                            <td colspan="3" style=" font-size:20px; color:red;">请仔细阅读背面契约条款，签字即视为同意接受</td>
+                        </tr>
+                        <tr>
+                            <td><h3 style="line-height:14px;">寄件人</h3><h3 style="line-height:14px;" class="dib">签署</h3><em style="width:auto">Sender's Signature</em></td>
+                            <td width="89" class="pr"><p class="font16 pa" style="left:-50px; top:5px; z-index:5; white-space:nowrap"></p><i class="pa" style="right:0; top:0px; color:#ddd; font-size:20px;font-style:normal; white-space:nowrap">(正楷)</i></td>
+                            <td><h4 style="line-height:14px;">收件人</h4><h4 style="line-height:14px;" class="dib">签收</h4><em style="width:auto">Receiver's Signature</em></td>
+                            <td width="90" class="pr"><p class="font16 pa" style="left:-60px; top:5px; z-index:5; white-space:nowrap"></p><i class="pa" style="right:0; top:0px; color:#ddd; font-size:20px;font-style:normal;">(正楷)</i></td>
+                        </tr>
+                        <tr style="padding:5px 0">
+                            <td><h3>日期<em>Date</em></h3></td>
+                            <td><p class="font16 tac" style="width:18px; white-space:nowrap"></p></td>
+                            <td><h3>月(M)</h3></td>
+                            <td><p class="font16 tac" style="width:18px; white-space:nowrap"></p></td>
+                            <td><h3>日(D)</h3></td>
+                            <td><p class="font16 tac" style="width:18px; white-space:nowrap"></p></td>
+                            <td><h3>时(H)</h3></td>
+                            <td width=5></td>
+                            <td><h3>日期<em>Date</em></h3></td>
+                            <td><p class="font16 tac" style="width:18px; white-space:nowrap"></p></td>
+                            <td><h3>月(M)</h3></td>
+                            <td><p class="font16 tac" style="width:18px; white-space:nowrap"></p></td>
+                            <td><h3>日(D)</h3></td>
+                            <td><p class="font16 tac" style="width:18px; white-space:nowrap"></p></td>
+                            <td><h3>时(H)</h3></td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="right">
+                    <table class="pr" width="505" style="background:rgba(255,189,189,0.3)" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th class="pa">5</th>
+                        </tr>
+                        <tr style="border:none;">
+                            <td>
+                                <h3>产品服务 Produces & Services</h3>
+                            </td>
+                        </tr>
+                        <tr style="border:none; line-height:12px" height="25">
+                            <td>
+                                <input type="checkbox" style="margin-left:5px">
+                            </td>
+                            <td width="83">
+                                <p>即日</p><em class="pa">Same-day</em>
+                            </td>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td width="83">
+                                <p>次晨</p><em class="pa">Next Morning</em>
+                            </td>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td width="83">
+                                <p>特安</p><em class="pa">Highly Secured</em>
+                            </td>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td width="83">
+                                <p>顺丰特惠</p><em class="pa">SF Economy</em>
+                            </td>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td width="83">
+                                <p>物流普运</p><em class="pa">Logistics&Transport</em>
+                            </td>
+                        </tr>
+                        <tr height="25" style="line-height:12px">
+                            <td>
+                                <input type="checkbox" style="margin-left:5px">
+                            </td>
+                            <td width="83">
+                                <p>电商特惠</p><em class="pa">E-commerce Economy</em>
+                            </td>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td width="83">
+                                <p>电商速配</p><em class="pa">E-commerce Express</em>
+                            </td>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td width="83">
+                                <p>生鲜速配</p><em class="pa">Fresh Product Delivery</em>
+                            </td>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>
+                                <p>其他</p>
+                            </td>
+                            <td>
+                                <p class="font16 pa" style="border-bottom:1px solid #ddd; margin-top:-2px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="pr" width="505" style="background:rgba(255,189,189,0.3)" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th class="pa">6</th>
+                        </tr>
+                        <tr style="border:none;">
+                            <td>
+                                <h3>增值服务 Value Added Services</h3>
+                            </td>
+                        </tr>
+                        <tr style="line-height:25px;">
+                            <td style="border-right:1px solid #ddd; padding:0 5px" width=80>
+                                <input type="checkbox" class="dib"><h3 class="dib">代收货款</h3>
+                            </td>
+                            <td>
+                                <h3>卡 号</h3>
+                            </td>
+                            <td width=200>
+                                <p class="font16 pa" style="margin-top:-12px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                            <td style="border-right:1px solid #ddd;padding-left:5px" width=65>
+                                <h3>金 额</h3>
+                            </td>
+                            <td>
+                                <p class="font16 pa" style="margin-top:-12px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                        </tr>
+                        <tr style="line-height:25px;">
+                            <td style="border-right:1px solid #ddd; padding:0 5px" width=80>
+                                <input type="checkbox" class="dib"><h3 class="dib">保 价</h3>
+                            </td>
+                            <td style="border-right:1px solid #ddd; padding-left:5px" width=65>
+                                <h3>投保金额</h3>
+                            </td>
+                            <td width=164 style="border-right:1px solid #ddd">
+                                <p class="font16 pa" style="margin-top:-12px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                            <td style="border-right:1px solid #ddd;padding-left:5px" width=65>
+                                <h3>保价费用</h3>
+                            </td>
+                            <td>
+                                <p class="font16 pa" style="margin-top:-12px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                        </tr>
+                        <tr style="line-height:25px;">
+                            <td style="border-right:1px solid #ddd; padding:0 5px" width=80>
+                                <input type="checkbox" class="dib"><h3 class="dib">签单返还</h3>
+                            </td>
+                            <td width=235 style="border-right:1px solid #ddd">
+                                <p class="font16 pa" style="margin-top:-12px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                            <td style="border-right:1px solid #ddd;padding-left:5px" width=65>
+                                <h3>包装费用</h3>
+                            </td>
+                            <td>
+                                <p class="font16 pa" style="margin-top:-12px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                        </tr>
+                        <tr style="line-height:25px;">
+                            <td style="padding:0 5px" width=80>
+                                <input type="checkbox" class="dib"><h3 class="dib">超长超重</h3>
+                            </td>
+                            <td width=236 style="border-right:1px solid #ddd">
+                            </td>
+                            <td style="border-right:1px solid #ddd;padding-left:5px" width=65>
+                                <h3>费 用</h3>
+                            </td>
+                            <td>
+                                <p class="font16 pa" style="margin-top:-12px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                        </tr>
+                        <tr style="line-height:25px;">
+                            <td style="padding:0 5px" width=80>
+                                <input type="checkbox" class="dib"><h3 class="dib">其 他</h3>
+                            </td>
+                            <td width=236 style="border-right:1px solid #ddd">
+                                <p class="font16 pa" style="margin-top:-12px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                            <td style="border-right:1px solid #ddd;padding-left:5px" width=65>
+                                <h3>费 用</h3>
+                            </td>
+                            <td>
+                                <p class="font16 pa" style="margin-top:-12px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                        </tr>
+                        <tr style="line-height:25px;">
+                            <td style="padding:0 5px" width=80>
+                                <input type="checkbox" class="dib"><h3 class="dib">其 他</h3>
+                            </td>
+                            <td width=236 style="border-right:1px solid #ddd">
+                                <p class="font16 pa" style="margin-top:-12px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                            <td style="border-right:1px solid #ddd;padding-left:5px" width=65>
+                                <h3>费 用</h3>
+                            </td>
+                            <td>
+                                <p class="font16 pa" style="margin-top:-12px; margin-left:5px; white-space:nowrap"></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="pr" width="505" style="background:rgba(255,189,189,0.3)" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th class="pa">7</th>
+                        </tr>
+                        <tr style="border:none;">
+                            <td>
+                                <h3>费用 Charges</h3>
+                            </td>
+                        </tr>
+                        <tr style="line-height:14px">
+                            <td style="border-right:1px solid #ddd; padding-left:2px" width=97 height=50 align="left" valign="top">
+                                <h3>件数</h3><em class="pa" style="white-space:nowrap">No. of Packages</em>
+                                <p class="font16 pa" style="white-space:nowrap;margin-top:15px;"></p>
+                            </td>
+                            <td style="border-right:1px solid #ddd; padding-left:2px" width=97 height=50 align="left" valign="top">
+                                <h3 style="white-space:nowrap">实际重量(公斤)</h3><em class="pa" style="white-space:nowrap">Total Actual Weight</em>
+                                <p class="font16 pa" style="white-space:nowrap;margin-top:15px;"></p>
+                            </td>
+                            <td style="border-right:1px solid #ddd; padding-left:2px" width=97 height=50 align="left" valign="top">
+                                <h3 style="white-space:nowrap">计费重量(公斤)</h3><em class="pa" style="white-space:nowrap">Total Chargeable Weight</em>
+                                <p class="font16 pa" style="white-space:nowrap;margin-top:15px;"></p>
+                            </td>
+                            <td style="border-right:1px solid #ddd; padding-left:2px" width=97 height=50 align="left" valign="top">
+                                <h3>运费</h3><em>Charges</em>
+                                <p class="font16 pa" style="white-space:nowrap"></p>
+                            </td>
+                            <td style="border:1px solid #000; padding-left:2px" width=97 height=50 align="left" valign="top">
+                                <h3>费用合计</h3><em>Total Charges</em>
+                                <p class="font16 pa" style="white-space:nowrap"></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="pr" width="505" style="background:rgba(255,189,189,0.3)" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th class="pa">8</th>
+                        </tr>
+                        <tr style="border:none;">
+                            <td>
+                                <h3>付款方式 Payment</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" style="margin-left:5px">
+                            </td>
+                            <td width=70>
+                                <p>寄方付</p><em>Sender</em>
+                            </td>
+                            <td>
+                                <input type="checkbox" style="margin-left:5px">
+                            </td>
+                            <td width=70>
+                                <p>收方付</p><em>Receiver</em>
+                            </td>
+                            <td>
+                                <input type="checkbox" style="margin-left:5px">
+                            </td>
+                            <td width=70>
+                                <p>第三方付</p><em>3rd Party</em>
+                            </td>
+                            <td class="pr" style="border-left:1px solid #ddd">
+                                <em>第三方付款地区</em>
+                                <em class="db">Third Party District Code</em>
+                                <p class="font16 pa" style="top:0;left:100px; white-space:nowrap"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3>月结帐号</h3>
+                                <em>Monthly-payment A/C No.</em>
+                            </td>
+                            <td>
+                                <p class="font16 pa" style="margin-top:-10px; white-space:nowrap"></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="border:1px solid #ddd" width=505>
+                        <tr style="border:none">
+                            <td height=40 align="left" valign="top">
+                                <h3>备注 Remarks</h3>
+                                <p class="font16 pa"></p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <div align="center">
+            <button id="print" onmouseover="this.style.borderColor='#75cd02'" onmouseout="this.style.borderColor='#dcdcdc'" class="pbtn1" >打印</button>
+            <!-- <input type="button" id="print" value="打印" id="print"/>  -->
+        </div>
+        <script>
+$(document).ready(function(){
+    $("#print").click(function(){
+        $("#print_show").jqprint();
+    })
+})
+        </script>
+    </body>
+</html>

@@ -1,13 +1,15 @@
-//保证可视区元素放满，不影响视觉效果
-//连续点击按钮会出现移动过头的情况 stop并不起作用，待解决
-
+<!--
+    1.保证可视区元素放满，不影响视觉效果
+    2.连续点击按钮会出现移动过头的情况 stop并不起作用，待解决
+-->
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset=utf-8 />
-        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/public.css" />
     </head>
-<style>
+    <style>
 .special .spcont .conbox{
     width: 995px;
 }
@@ -20,6 +22,8 @@
     margin-top: -22px;
     z-index: 9;
     cursor: pointer;
+    line-height: 44px;
+    color: rgb(255, 255, 255);
 }
 .special .spcont .conbox .right{
     width: 26px;
@@ -30,6 +34,8 @@
     margin-top: -22px;
     z-index: 9;
     cursor: pointer;
+    line-height: 44px;
+    color: rgb(255, 255, 255);
 }
 .special .spcont .conbox li{
     border:1px solid #ccc;
@@ -50,6 +56,8 @@
     font-weight: normal;
 }
 .special .spcont .class2 .text h3{
+    line-height: 44px;
+    color: rgb(255, 255, 255);
     font-size: 20px;
     line-height: 20px;
     color: rgb(255, 0, 0);
@@ -77,163 +85,90 @@
     border-radius: 3px;
     margin: auto;
 }
-.fl{
-  float:left;
-}
-.db{
-  display:block;
-}
-.oh{
-  overflow:hidden;
-}
-.fr{
-  float:right;
-}
-.pr{
-  position:relative;
-}
-.pa{
-  position:absolute;
-}
-.tac{
-  text-align:center;
-}
-</style>
+    </style>
     <body>
         <div class="special fl">
             <div class="spcont spcont4 oh">
                 <div class="conbox fr pr oh">
-                    <span class="pa left db"></span>
-                    <span class="pa right db"></span>
+                    <span class="pa left db tac">←</span>
+                    <span class="pa right db tac">→</span>
                     <ul class="oh class2">
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">1</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">2</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">3</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">4</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">5</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">6</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">7</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">8</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">9</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">10</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">11</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">12</span>
                             </a>
                         </li>
                         <li class="fl pr">
                             <a class="db">
                                 <img class="db" src="" width=198 height=198 alt="" />
-                                <span class="text db oh">
-                                    <h3 class="oh">爱马仕<em>你想要的爱马仕品牌</em></h3>
-                                    <p class="oh tac">忠于传统手工艺，不断追求创新</p>
-                                    <span class="db tac spremind">特惠价：￥<em>685,882</em></span>
-                                </span>
+                                <span class="text db oh">13</span>
                             </a>
                         </li>
                     </ul>

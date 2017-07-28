@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.oh {
+    overflow: hidden;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.tac {
+    text-align: center;
+}
+.pr {
+    position: relative;
+}
+.pa {
+    position: absolute;
+}
+.db {
+    display: block;
+}
+.dib {
+    display: inline-block;
+}
+.dn {
+    display: none;
+}

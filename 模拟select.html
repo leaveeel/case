@@ -1,4 +1,11 @@
-<style>
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/public.css" />
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    </head>
+    <style>
 span {
     width: 646px;
     padding: 0 30px;
@@ -6,7 +13,6 @@ span {
     line-height: 58px;
     border: 1px solid #999;
     margin: auto;
-    background: url(../img/icon5.png) no-repeat center right 30px;
     font-size: 20px;
     margin-bottom: 60px;
 }
@@ -41,45 +47,27 @@ ul li {
     color: rgb(0, 0, 0);
     cursor: pointer;
 }
-.db {
-    display: block;
-}
-.pr {
-    position: relative;
-}
-.pa {
-    position: absolute;
-}
-.oh {
-    overflow: hidden;
-}
-.fl {
-    float: left;
-}
-.hide {
-    display: none;
-}
-</style>
+    </style>
+
+
+    <body>
+        <span class="db pr">
+            <p class="pa default">请选择</p>
+            <p class="pa write"></p>
+            <ul class="oh pa dn">
+                <li class="fl">1</li>
+                <li class="fl">2</li>
+                <li class="fl">3</li>
+                <li class="fl">4</li>
+                <li class="fl">5</li>
+                <li class="fl">6</li>
+            </ul>
+        </span>
+    </body>
 
 
 
-<span class="db pr">
-    <p class="pa default">请选择</p>
-    <p class="pa write"></p>
-    <ul class="oh pa hide">
-        <li class="fl">1</li>
-        <li class="fl">2</li>
-        <li class="fl">3</li>
-        <li class="fl">4</li>
-        <li class="fl">5</li>
-        <li class="fl">6</li>
-    </ul>
-</span>
-
-
-
-
-<script>
+    <script>
 $("p").click(function(){
     if($(this).siblings("ul").is(":hidden")){
         $(this).siblings("ul").slideDown(200);
@@ -91,4 +79,5 @@ $("ul li").click(function(){
     var text=$(this).text();
     $(this).parent().siblings(".write").text(text).siblings(".default").hide().siblings("ul").slideUp(200);
 });
-</script>
+    </script>
+</html>
