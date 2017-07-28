@@ -1,3 +1,3 @@
-# javascript-package
+﻿# case
 
-这里保存了用到的js
+整理了一些js，方便调用；</br>
