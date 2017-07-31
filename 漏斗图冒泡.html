@@ -1,0 +1,90 @@
+<!--
+    1.数组内容自动排序 按百分比填充的漏斗图
+    3.可做动态添加数组
+-->
+<!doctype html>
+<html>
+    <head><script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script></head>
+        <body>
+            <style>
+.max{
+    width: 0;
+    height: 0;
+    border-left: 143px solid transparent;
+    border-right: 143px solid transparent;
+    border-top: 248px solid #e6e6e6;
+    position:relative;margin-top:300px;margin-left:500px;
+
+}
+.max input{display:none;}
+.max div{
+    position:absolute;
+    bottom:0;
+    width: 0;
+    height: 0;
+    border-left: solid transparent;
+    border-right: solid transparent;
+    border-top: solid;
+}
+            </style>
+            <div class="max">
+            </div>
+            <input type="text" id="text" />
+            <input type="text" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" id="num" />
+            <input type="button" id="button" />
+            <script>
+var a,b,c,d,e;
+var max=100;//最大值/全部值
+var content=[//内容数组
+    ["1",33]
+    ,["4",27]
+    ,["3",90]
+    ,["5",68]
+];
+//冒泡排序
+function arrayBubble(){
+    var i, len = content.length, j, d;
+    for(i=0; i<len; i++){ 
+        for(j=0; j<len; j++){ 
+            if(content[i][1] > content[j][1]){ 
+                d = content[j];
+                content[j] = content[i];
+                content[i] = d; 
+            } 
+        } 
+    }
+    return content;
+}
+
+function add(){
+    arrayBubble();
+    var randomcolor = function(){
+        return '#'+(function(color){
+            return (color+='0123456789abcdef'[Math.floor(Math.random()*16)]) && (color.length==6) ? color : arguments.callee(color);
+        })('');
+    }
+    for(var i=0;i<content.length;i++){//填充图表数据
+        $(".max").append("<div class='content"+(i+1)+"' title='"+content[i][0]+":"+content[i][1]+"'><!--"+content[i][0]+"--></div><input id='content"+(i+1)+"' value='"+content[i][1]+"' />");
+        $(".max div").eq(i).css("border-top-color",randomcolor());
+        a="#content"+(i+1);
+        c=".content"+(i+1);
+        b=$(a)[0].value;
+        d=b/max*parseInt($(".max").css("border-top-width"));
+        e=b/max*parseInt($(".max").css("border-left-width"));
+        $(c).css("margin-left",-e);
+        $(c).animate({"border-top-width":d,"border-left-width":e,"border-right-width":e},750);
+    }
+}
+add();
+$("#button").click(function(){//添加数组
+    if($("#text")[0].value!="" && !isNaN($("#num")[0].value) && $("#num")[0].value>0 && $("#num")[0].value<=100 ){
+        content.push([$("#text")[0].value,$("#num")[0].value]);
+        $(".max").children().remove();
+        add();
+    }else {
+        alert("输入有误");
+    }
+});
+            </script>
+        </body>
+</html>
