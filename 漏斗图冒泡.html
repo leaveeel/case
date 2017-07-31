@@ -4,9 +4,9 @@
 -->
 <!doctype html>
 <html>
-    <head><script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script></head>
-        <body>
-            <style>
+    <head>
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <style>
 .max{
     width: 0;
     height: 0;
@@ -16,7 +16,9 @@
     position:relative;margin-top:300px;margin-left:500px;
 
 }
-.max input{display:none;}
+.max input{
+    display:none;
+}
 .max div{
     position:absolute;
     bottom:0;
@@ -26,13 +28,14 @@
     border-right: solid transparent;
     border-top: solid;
 }
-            </style>
-            <div class="max">
-            </div>
-            <input type="text" id="text" />
-            <input type="text" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" id="num" />
-            <input type="button" id="button" />
-            <script>
+        </style>
+    </head>
+    <body>
+        <div class="max"></div>
+        <input type="text" id="text" />
+        <input type="text" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" id="num" />
+        <input type="button" id="button" />
+        <script>
 var a,b,c,d,e;
 var max=100;//最大值/全部值
 var content=[//内容数组
@@ -55,7 +58,6 @@ function arrayBubble(){
     }
     return content;
 }
-
 function add(){
     arrayBubble();
     var randomcolor = function(){
@@ -85,6 +87,6 @@ $("#button").click(function(){//添加数组
         alert("输入有误");
     }
 });
-            </script>
-        </body>
+        </script>
+    </body>
 </html>
