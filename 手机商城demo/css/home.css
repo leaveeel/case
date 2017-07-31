@@ -1,0 +1,289 @@
+﻿.clear{
+    clear:both;
+}
+body{
+    background:#f4f0f0;
+}
+*{
+    font-family:"微软雅黑";	
+}
+header{
+    background:#fff;
+    padding:14px 20px;
+}
+header .search{
+    background:#f3f2f2;
+    padding:15px 24px;
+    border-radius:3px;
+}
+header .search i{
+    height:30px;
+    width:30px;
+    background:url(../image/search.png) no-repeat;
+}
+header .search input{
+    background:none;
+    width:502px;
+    font-size:24px;
+    color:#c6c6c6;
+    line-height:30px;
+    margin-left:20px;
+}
+header .cart{
+    width:41px;
+    height:35px;
+    background:url(../image/cart.png) no-repeat;
+    margin-left:41px;
+    margin-top:18px;
+}
+header .cart i{
+    background:#db2b2b;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    right:-12px;
+    top:-7px;
+}
+section{
+    background:#f4f0f0;
+    margin-bottom:98px;
+}
+section .banner{
+    width:750px;
+    height:310px;
+    box-shadow:0px 1px 5px rgba(221,221,221,0.75);
+}
+section .banner span{
+    width:106px;
+    height:32px;
+    right:35px;
+    bottom:14px;
+    font-size:24px;
+    line-height:32px;
+}
+section .banner span i{
+    width:32px;
+    height:32px;
+    background:#fff;
+    color:#dfb318;
+    border-radius:50%;
+}
+section .banner span p{
+    width:76px;
+    height:30px;
+    background:url(../image/bannernumbg.png) no-repeat;
+    margin-top:1px;
+    margin-left:-2px;
+    color:#fff;
+}
+section nav{
+    background:#fff;
+}
+section nav ul li{
+    padding:40px 67.75px;
+    width:52px;
+    font-size:24px;
+    color:#221f1d;
+}
+section nav ul li i{
+    width:52px;
+    height:54px;
+    margin:auto;
+}
+section nav ul li p{
+    margin-top:30px;
+}
+section nav ul li.consignment i{
+    background:url(../image/consignment.png) no-repeat;
+}
+section nav ul li.requireBuy i{
+    background:url(../image/requireBuy.png) no-repeat;
+}
+section nav ul li.reservation i{
+    background:url(../image/reservation.png) no-repeat;
+}
+section nav ul li.curing i{
+    background:url(../image/curing.png) no-repeat;
+}
+section .lists{
+    padding:10px 0;
+    background:#fff;
+    width:750px;
+}
+section .list{
+    width:1836px;
+}
+section .list li{
+    width:424px;
+    height:200px;
+    margin:0 17.5px;
+    box-shadow:0px 0px 15px rgba(0,0,0,0.3);
+    border-radius:10px;
+}
+section .listtxt{
+    padding:10px 10px 0px 10px;
+}
+section .listtxt li{
+    margin:0 5px;
+    width:172px;
+    height:32px;
+    background:#f4f0f0;
+    color:#282828;
+    border-radius:8px;
+    line-height:32px;
+    font-size:18px;
+}
+section .listtxt li.choose{
+    color:#fff;
+    background:#282828;
+}
+section .goodsclass{
+    width:750px;
+    height:800px;
+    margin:11px 0;
+    box-shadow:0px 1px 5px rgba(221,221,221,0.75);
+    background:#fff;
+}
+section .goodsclass span{
+    width:710px;
+    margin:auto;
+    height:72px;
+    line-height:72px;
+}
+section .goodsclass span i{
+    width:31px;
+    height:30px;
+    margin-top:21px;
+}
+section .goodsclass span p{
+    color:#221f1d;
+    font-size:26px;
+    margin-left:12px;
+}
+section .goodsclass span a{
+    font-size:22px;
+    color:#b0b0ab;
+}
+section .goodsclass ul{
+    padding:22px 0;
+}
+section .goodsclass ul li{
+    width:260px;
+    height:400px;
+    box-shadow:0px 0px 10px rgba(221,221,221,0.75);
+    border-radius:4px;
+    margin:0 17.5px;
+}
+section .goodsclass ul li div{
+    padding:0 20px;
+    margin-top:20px;
+}
+section .goodsclass ul li div h3{
+    font-size:22px;
+    color:#797979;
+    font-weight:normal;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+section .goodsclass ul li div h4{
+    font-size:26px;
+    color:#221f1d;
+    font-weight:normal;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    line-height:54px;
+}
+section .goodsclass ul li div p{
+    color:#221f1d;
+    font-size:26px;
+}
+section .bags{
+    margin-top:1px;
+}
+section .bags i{
+    background:url(../image/bagsicon.png) no-repeat;
+}
+section .watch i{
+    background:url(../image/watchicon.png) no-repeat;
+}
+section .diamond i{
+    background:url(../image/diamondicon.png) no-repeat;
+}
+section .jewelry i{
+    background:url(../image/jewelryicon.png) no-repeat;
+}
+section .digital i{
+    background:url(../image/digitalicon.png) no-repeat;
+}
+section .tips{
+    width:710px;
+    height:36px;
+    margin:auto;
+}
+section .tips p{
+    width:130px;
+    color:#c9c9c9;
+    font-size:20px;
+    line-height:36px;
+}
+section .tips hr{
+    height:1px;
+    width:290px;
+    margin-top:17.5px;
+    background:#dedede;
+}
+footer{
+    box-shadow:0px -1px 5px rgba(221,221,221,0.75);
+    position:fixed;
+    bottom:0;
+    background:#fff;
+}
+footer ul li{
+    padding:14px 70px;
+    width:47.5px;
+    font-size:20px;
+    color:#9f9d9d;
+}
+footer ul li p{
+    margin-top:2px;
+}
+footer ul li i{
+    margin:auto;
+    width:46px;
+    height:42px;
+}
+footer ul li.home i{
+    background:url(../image/home.png) no-repeat;
+}
+footer ul li.sort i{
+    background:url(../image/sort.png) no-repeat;
+}
+footer ul li.brand i{
+    background:url(../image/brand.png) no-repeat;
+}
+footer ul li.personal i{
+    background:url(../image/personal.png) no-repeat;
+}
+footer ul li.home i.choose{
+    background:url(../image/home_c.png) no-repeat;
+}
+footer ul li.sort i.choose{
+    background:url(../image/sort_c.png) no-repeat;
+}
+footer ul li.brand i.choose{
+    background:url(../image/brand_c.png) no-repeat;
+}
+footer ul li.personal i.choose{
+    background:url(../image/personal_c.png) no-repeat;
+}
+footer ul li.personal span{
+    background:#db2b2b;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    right:-9px;
+    top:-1px;
+}
+footer ul li.click{
+    color:#221f1d;
+}

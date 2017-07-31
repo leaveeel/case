@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    border: 0;
+    font-style: normal;
+    outline: none;
+    text-decoration: none;
+    color: #000;
 }
 .oh {
     overflow: hidden;

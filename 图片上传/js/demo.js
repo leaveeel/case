@@ -93,7 +93,7 @@
         },
 
         // swf文件路径
-        swf: 'http://192.168.1.223:8080/swf/Uploader.swf',
+        swf: 'Uploader.swf',
 
         disableGlobalDnd: true,
 

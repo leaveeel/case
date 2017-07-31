@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>mobile home</title>
+        <!--等比例缩放-->
+        <meta name="viewport" content="target-densitydpi=320,width=750,user-scalable=no" />
+        <link href="../css/public.css" rel="stylesheet" type="text/css" />
+        <link href="css/home.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+/*判断设备类型*/
+function is_mobile() {
+    var regex_match = /(nokia|iphone|android|motorola|^mot-|softbank|foma|docomo|kddi|up.browser|up.link|htc|dopod|blazer|netfront|helio|hosin|huawei|novarra|CoolPad|webos|techfaith|palmsource|blackberry|alcatel|amoi|ktouch|nexian|samsung|^sam-|s[cg]h|^lge|ericsson|philips|sagem|wellcom|bunjalloo|maui|symbian|smartphone|midp|wap|phone|windows ce|iemobile|^spice|^bird|^zte-|longcos|pantech|gionee|^sie-|portalmmm|jigs browser|hiptop|^benq|haier|^lct|operas*mobi|opera*mini|320x320|240x320|176x220)/i;
+    var u = navigator.userAgent;
+    if (null == u) {
+        return true;
+    }
+    var result = regex_match.exec(u);
+    if (null == result) {
+        return false
+    } else {
+        return true
+    }
+}
+if (is_mobile() == false) {
+    alert("请在移动端打开");
+    window.location.href="README.md";
+}
+        </script>
+    </head>
+    <body>
+        <header class="oh">
+            <span class="search fl">
+                <i class="db fl"></i>
+                <input class="fl" value="搜索包袋、腕表、钻石、首饰、数码" onfocus="if(this.value=='搜索包袋、腕表、钻石、首饰、数码')this.value='';" onblur="if(this.value=='')this.value='搜索包袋、腕表、钻石、首饰、数码';" />
+            </span>
+            <a class="cart pr fl" href="">
+                <i class="pa" style="display:none"></i>
+            </a>
+        </header>
+        <section>
+            <div class="banner pr oh" id="banner">
+                <ul class="bannerimg">
+                    <li class="fl">
+                        <a href="">
+                            <img src="image/home.png" width=750 height=310 />
+                        </a>
+                    </li>
+                    <li class="fl">
+                        <a href="">
+                            <img src="image/sort.png" width=750 height=310 />
+                        </a>
+                    </li>
+                    <li class="fl">
+                        <a href="">
+                            <img src="image/brand.png" width=750 height=310 />
+                        </a>
+                    </li>
+                    <li class="fl">
+                        <a href="">
+                            <img src="image/personal.png" width=750 height=310 />
+                        </a>
+                    </li>
+                </ul>
+                <span class="pa">
+                    <i class="fl tac">1</i>
+                    <p class="fl tac">of <em></em></p>
+                </span>
+            </div>
+            <nav>
+                <ul class="oh">
+                    <li class="fl consignment">
+                        <a class="db" href="">
+                            <i class="db"></i>
+                            <p class="tac">寄售</p>
+                        </a>
+                    </li>
+                    <li class="fl requireBuy">
+                        <a class="db" href="">
+                            <i class="db"></i>
+                            <p class="tac">求购</p>
+                        </a>
+                    </li>
+                    <li class="fl reservation">
+                        <a class="db" href="">
+                            <i class="db"></i>
+                            <p class="tac">预约</p>
+                        </a>
+                    </li>
+                    <li class="fl curing">
+                        <a class="db" href="">
+                            <i class="db"></i>
+                            <p class="tac">养护</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="lists oh">
+                <div class="listbox" class="oh" style="overflow:auto;">
+                    <ul class="list oh">
+                        <li class="fl assessment">
+                            <a href="">
+                                <img src="image/assessment.png" />
+                            </a>
+                        </li>
+                        <li class="fl recover">
+                            <a href="">
+                                <img src="image/recover.png" />
+                            </a>
+                        </li>
+                        <li class="fl join">
+                            <a href="">
+                                <img src="image/join.png" />
+                            </a>
+                        </li>
+                        <li class="fl train">
+                            <a href="">
+                                <img src="image/train.png" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="listtxt oh clear">
+                    <li class="fl choose tac">在线估价</li>
+                    <li class="fl tac">回收</li>
+                    <li class="fl tac">加盟</li>
+                    <li class="fl tac">商学院</li>
+                </ul>
+            </div>
+            <div class="bags goodsclass">
+                <span class="db oh">
+                    <i class="fl"></i>
+                    <p class="fl">包袋</p>
+                    <a class="fr" href="">更多 →</a>
+                </span>
+                <img src="image/bags.png" />
+                <div style="overflow:scroll;">
+                    <ul class="oh">
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="watch goodsclass">
+                <span class="db oh">
+                    <i class="fl"></i>
+                    <p class="fl">腕表</p>
+                    <a class="fr" href="">更多 →</a>
+                </span>
+                <img src="image/watch.png" />
+                <div style="overflow:scroll;">
+                    <ul class="oh">
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="diamond goodsclass">
+                <span class="db oh">
+                    <i class="fl"></i>
+                    <p class="fl">钻石</p>
+                    <a class="fr" href="">更多 →</a>
+                </span>
+                <img src="image/diamond.png" />
+                <div style="overflow:scroll;">
+                    <ul class="oh">
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="jewelry goodsclass">
+                <span class="db oh">
+                    <i class="fl"></i>
+                    <p class="fl">首饰</p>
+                    <a class="fr" href="">更多 →</a>
+                </span>
+                <img src="image/jewelry.png" />
+                <div style="overflow:scroll;">
+                    <ul class="oh">
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="digital goodsclass">
+                <span class="db oh">
+                    <i class="fl"></i>
+                    <p class="fl">数码</p>
+                    <a class="fr" href="">更多 →</a>
+                </span>
+                <img src="image/digital.png" />
+                <div style="overflow:scroll;">
+                    <ul class="oh">
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="fl oh">
+                            <a href="">
+                                <img src="" width=260 height=260 />
+                                <div>
+                                    <h3 class="oh">GUCCI/古驰</h3>
+                                    <h4 class="oh">女士经典波士顿包</h4>
+                                    <p class="oh">￥3580.00</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tips oh">
+                <hr class="fl" />
+                <p class="tac fl">没有更多了</p>
+                <hr class="fr" />
+            </div>
+        </section>
+        <footer>
+            <ul class="oh">
+                <li class="fl home click">
+                    <i class="db"></i>
+                    <i class="db choose"></i>
+                    <p class="tac">首页</p>
+                </li>
+                <li class="fl sort">
+                    <i class="db"></i>
+                    <i class="db choose"></i>
+                    <p class="tac">分类</p>
+                </li>
+                <li class="fl brand">
+                    <i class="db"></i>
+                    <i class="db choose"></i>
+                    <p class="tac">品牌</p>
+                </li>
+                <li class="fl personal">
+                    <i class="db pr">
+                        <span class="pa"></span>
+                    </i>
+                    <i class="db choose pr">
+                        <span class="pa"></span>
+                    </i>
+                    <p class="tac">我的</p>
+                </li>
+            </ul>
+        </footer>
+        <script type="text/javascript" src="js/home.js"></script>
+    </body>
+</html>
