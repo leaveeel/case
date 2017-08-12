@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href="css/public.css" rel="stylesheet" type="text/css" />
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <style>
+li {
+    width: 100px;
+    height: 100px;
+    margin: 50px;
+    background-color: #f00;
+}
+        </style>
+    </head>
+    <body>
+        <p>10</p>
+        <ul>
+            <li class="fl">1</li>
+        </ul>
+        <script>
+//次数
+var times=parseInt($("p").html());
+$("li").click(function(){
+    if(times!=0){
+        times-=1;
+        //概率
+        var num=Math.floor(Math.random()*100);
+        var prizenum;
+        if(num<15){
+            prizenum=0;
+        }else if(num<30){
+            prizenum=1;
+        }else if(num<48){
+            prizenum=2;
+        }else if(num<50){
+            prizenum=3;
+        }else if(num<100){
+            prizenum=4;
+        }
+        if(prizenum==0){
+            alert(0)
+        }else if(prizenum==1){
+            alert(1)
+        }else if(prizenum==2){
+            alert(2)
+        }else if(prizenum==3){
+            alert(3)
+        }else if(prizenum==4){
+            alert(4)
+        }
+        $(".chance em").html(times);
+    }
+});
+        </script>
+    </body>
+</html>
