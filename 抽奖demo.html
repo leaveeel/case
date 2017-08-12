@@ -24,6 +24,7 @@ var times=parseInt($("p").html());
 $("li").click(function(){
     if(times!=0){
         times-=1;
+        alert(times)
         //概率
         var num=Math.floor(Math.random()*100);
         var prizenum;
@@ -49,7 +50,7 @@ $("li").click(function(){
         }else if(prizenum==4){
             alert(4)
         }
-        $(".chance em").html(times);
+        $("p").html(times);
     }
 });
         </script>
