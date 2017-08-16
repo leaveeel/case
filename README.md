@@ -12,4 +12,5 @@
 10.交换元素顺序逻辑：a=b;b=c;c=a;<br />
 11.使用viewport做自适应布局时会出现文字大小异常的情况，高度固定可以给元素加上height属性，不固定可以加较大的max-height属性；<br />
 12.pointer-events: none;样式可以阻止点击事件；T:UC浏览器跳转后返回再点击无效<br />
-13.UC浏览器</h>标签text-align:center;不生效<br />
+13.UC浏览器</h>标签text-align:center;不生效；<br />
+14.trigger()可用作自动执行事件；<br />
