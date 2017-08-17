@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/public.css" />
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    </head>
+    <style>
+span {
+    width: 646px;
+    padding: 0 30px;
+    height: 58px;
+    line-height: 58px;
+    border: 1px solid #999;
+    margin: auto;
+    font-size: 20px;
+    margin-bottom: 60px;
+}
+input {
+    height: 58px;
+    width: 646px;
+    line-height: 58px;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    padding: 0 30px;
+}
+ul {
+    top: 60px;
+    left: -1px;
+    width: 706px;
+    border-right: 1px solid #999;
+    border-left: 1px solid #999;
+    background-color: #fff;
+    z-index: 5;
+}
+ul li {
+    border-bottom: 1px solid #999;
+    width: 646px;
+    padding: 0 30px;
+    height: 58px;
+    line-height: 58px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    display: none;
+}
+    </style>
+    <body>
+        <span class="db pr">
+            <input class="select pa" oninput="OnInput()" onpropertychange="OnPropChanged()" /> <!--oninput-->
+            <ul class="oh pa">
+                <li class="fl">111111</li>
+                <li class="fl">111111</li>
+                <li class="fl">11111</li>
+                <li class="fl">111</li>
+                <li class="fl">1111111111</li>
+                <li class="fl">1111111</li>
+                <li class="fl">11111</li>
+                <li class="fl">111</li>
+                <li class="fl">1111111111</li>
+                <li class="fl">1111111</li>
+                <li class="fl">111111</li>
+                <li class="fl">11111</li>
+                <li class="fl">111</li>
+                <li class="fl">1111111111</li>
+                <li class="fl">1111111</li>
+                <li class="fl">111111</li>
+                <li class="fl">11111</li>
+                <li class="fl">111</li>
+                <li class="fl">1111111111</li>
+                <li class="fl">1111111</li>
+                <li class="fl">11111111111111</li>
+                <li class="fl">111111</li>
+                <li class="fl">11111</li>
+                <li class="fl">111</li>
+                <li class="fl">1111111111</li>
+                <li class="fl">1111111</li>
+                <li class="fl">11111111111111</li>
+                <li class="fl">111111</li>
+                <li class="fl">11111</li>
+                <li class="fl">111</li>
+                <li class="fl">1111111111</li>
+                <li class="fl">1111111</li>
+                <li class="fl">11111111111111</li>
+            </ul>
+        </span>
+    </body>
+
+
+
+    <script>
+function OnInput () {
+    var sval = $(".select").val();//输入字符
+    if(sval!=""){
+        var len=$("ul li").length;//候选条数
+        var index=0;//初始化显示条数
+        for (var i = 0; i < len; i++) {
+            if(index<5){//最大显示条数
+                if($("ul li").eq(i).html().indexOf(sval)!=-1){
+                    $("ul li").eq(i).show();
+                    index++;
+                }else{
+                    $("ul li").eq(i).hide();
+                }
+            }
+        }
+    }else {
+        $("ul li").hide();
+    }
+}
+// IE8
+function OnPropChanged(){
+    if (event.propertyName.toLowerCase () == "value") {
+        var sval = $(".select").val();//输入字符
+        if(sval!=""){
+            var len=$("ul li").length;//候选条数
+            var index=0;//初始化显示条数
+            for (var i = 0; i < len; i++) {
+                if(index<5){//最大显示条数
+                    if($("ul li").eq(i).html().indexOf(sval)!=-1){
+                        $("ul li").eq(i).show();
+                        index++;
+                    }else{
+                        $("ul li").eq(i).hide();
+                    }
+                }
+            }
+        }else {
+            $("ul li").hide();
+        }
+    }
+}
+
+$("ul li").click(function(){
+    var text=$(this).text();
+    $(".select").val(text).siblings("ul").find("li").hide();
+});
+
+$(document).click(function(){
+    if(!$(this).hasClass("search_input")){
+        $("ul li").hide();
+    };
+});
+    </script>
+</html>

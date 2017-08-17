@@ -5,7 +5,7 @@
         <link href="css/public.css" rel="stylesheet" type="text/css" />
         <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
         <style>
-li {
+a {
     width: 100px;
     height: 100px;
     margin: 50px;
@@ -14,43 +14,27 @@ li {
         </style>
     </head>
     <body>
-        <p>10</p>
-        <ul>
-            <li class="fl">1</li>
-        </ul>
+        <p class="time"></p>
+        <p class="num"></p>
+        <a class="db"></>
         <script>
 //次数
-var times=parseInt($("p").html());
-$("li").click(function(){
+var times=10;
+$(".time").html(times)
+$("a").click(function(){
     if(times!=0){
         times-=1;
-        alert(times)
-        //概率
-        var num=Math.floor(Math.random()*100);
-        var prizenum;
-        if(num<15){
-            prizenum=0;
+        var num=Math.floor(Math.random()*100); //随机数
+        if(num<15){//百分比概率
         }else if(num<30){
-            prizenum=1;
         }else if(num<48){
-            prizenum=2;
         }else if(num<50){
-            prizenum=3;
         }else if(num<100){
-            prizenum=4;
         }
-        if(prizenum==0){
-            alert(0)
-        }else if(prizenum==1){
-            alert(1)
-        }else if(prizenum==2){
-            alert(2)
-        }else if(prizenum==3){
-            alert(3)
-        }else if(prizenum==4){
-            alert(4)
-        }
-        $("p").html(times);
+        $(".time").html(times);
+        $(".num").html(num);
+    }else {
+        alert("没有次数");
     }
 });
         </script>
