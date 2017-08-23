@@ -44,9 +44,15 @@ ul li {
     cursor: pointer;
     display: none;
 }
+.show {
+    display: block;
+}
+.hover {
+    background: #ccc;
+}
     </style>
     <body>
-        <span class="db pr">
+        <span class="db pr search_input">
             <input class="select pa" oninput="OnInput()" onpropertychange="OnPropChanged()" /> <!--oninput-->
             <ul class="oh pa">
                 <li class="fl">111111</li>
@@ -89,57 +95,113 @@ ul li {
 
 
     <script>
+var cho=0;
+var showlen=20;//显示条数
 function OnInput () {
+    cho=0;
+    $("ul li").removeClass("hover");
     var sval = $(".select").val();//输入字符
+    var index=0;//初始化显示条数
     if(sval!=""){
         var len=$("ul li").length;//候选条数
-        var index=0;//初始化显示条数
         for (var i = 0; i < len; i++) {
-            if(index<5){//最大显示条数
+            if(index<showlen){//最大显示条数
                 if($("ul li").eq(i).html().indexOf(sval)!=-1){
-                    $("ul li").eq(i).show();
+                    $("ul li").eq(i).addClass("show");
                     index++;
                 }else{
-                    $("ul li").eq(i).hide();
+                    $("ul li").eq(i).removeClass("show");
                 }
             }
         }
     }else {
-        $("ul li").hide();
+        $("ul li").removeClass("show");
     }
 }
 // IE8
 function OnPropChanged(){
+    cho=0;
+    $("ul li").removeClass("hover");
     if (event.propertyName.toLowerCase () == "value") {
         var sval = $(".select").val();//输入字符
         if(sval!=""){
             var len=$("ul li").length;//候选条数
             var index=0;//初始化显示条数
             for (var i = 0; i < len; i++) {
-                if(index<5){//最大显示条数
+                if(index<showlen){//最大显示条数
                     if($("ul li").eq(i).html().indexOf(sval)!=-1){
-                        $("ul li").eq(i).show();
+                        $("ul li").eq(i).addClass("show");
                         index++;
                     }else{
-                        $("ul li").eq(i).hide();
+                        $("ul li").eq(i).removeClass("show");
                     }
                 }
             }
         }else {
-            $("ul li").hide();
+            $("ul li").removeClass("show");
         }
     }
 }
 
 $("ul li").click(function(){
+    cho=0;// 重置标记
     var text=$(this).text();
-    $(".select").val(text).siblings("ul").find("li").hide();
+    $(".select").val(text).siblings("ul").find("li").removeClass("show");
+});
+
+$("ul li").hover(function(){
+    cho=$(this).index();
+    $(this).addClass("hover").siblings().removeClass("hover");
+},function(){
+    cho=0;
+    $(this).removeClass("hover");
 });
 
 $(document).click(function(){
-    if(!$(this).hasClass("search_input")){
-        $("ul li").hide();
-    };
+    cho=0;
+    $("ul li").removeClass("show hover");
+});
+
+$("input").keyup(function(e) { //触发按键的元素
+    e = window.event || e;
+    if($("ul li").is(":visible")){ //方向键下
+        showlen=$("ul li.show").length;
+        if (e.keyCode && e.keyCode == 40 ) { 
+            if(!$("ul li").hasClass("hover")){
+                $("ul li.show").eq(cho).addClass("hover").siblings().removeClass("hover");
+            }else{
+                $("ul li.show").eq(cho+1).addClass("hover").siblings().removeClass("hover");
+                if(cho==showlen-1){
+                    cho=0;
+                    $("ul li.show").eq(cho).addClass("hover").siblings().removeClass("hover");
+                }else {
+                    cho++;
+                }
+            }
+        }
+        if (e.keyCode && e.keyCode == 38 ) { //方向键上
+            if(!$("ul li").hasClass("hover")){
+                cho=showlen-1;
+                $("ul li.show").eq(cho).addClass("hover").siblings().removeClass("hover");
+            }else {
+                $("ul li.show").eq(cho-1).addClass("hover").siblings().removeClass("hover");
+                if(cho==0){
+                    cho=showlen-1;
+                    $("ul li.show").eq(cho).addClass("hover").siblings().removeClass("hover");
+                }else{
+                    cho--;
+                }
+            }
+        }
+        if (e.keyCode && e.keyCode == 13 && $("ul li").hasClass("hover") ) { //回车
+            cho=0;
+            var text=$("ul li.hover").text();
+            $(".select").val(text).siblings("ul").find("li").removeClass("show hover");
+        }
+        if (e.keyCode && e.keyCode == 27 ) { //ESC
+            $("ul li").removeClass("show hover");
+        }
+    }
 });
     </script>
 </html>

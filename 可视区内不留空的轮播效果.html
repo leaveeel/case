@@ -175,6 +175,90 @@
                 </div>
             </div>
         </div>
+
+        <div class="special fl">
+            <div class="spcont spcont4 oh">
+                <div class="conbox fr pr oh">
+                    <span class="pa left db tac">←</span>
+                    <span class="pa right db tac">→</span>
+                    <ul class="oh class2">
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">1</span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">2</span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">3</span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">4</span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">5</span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">6</span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">7</span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">8</span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">9</span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">10</span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">11</span>
+                            </a>
+                        </li>
+                        <li class="fl pr">
+                            <a class="db">
+                                <img class="db" src="" width=198 height=198 alt="" />
+                                <span class="text db oh">12</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
         <script>
 for(var i=0;i<4;i++){
     var thiscont=$(".special .spcont").eq(i).find(".conbox");
@@ -186,23 +270,39 @@ for(var i=0;i<4;i++){
     thiscont.find(".right").click(function(){
         var ul=$(this).siblings("ul");
         var len=ul.find("li").length;
-        if(parseInt(ul.css("margin-left"))>-1000*(Math.floor(len/4)-1)){
-            ul.stop(true,false).animate({"margin-left":"-=1000"});
-        }else if(parseInt(ul.css("margin-left"))==-1000*(Math.floor(len/4)-1)){
-            ul.stop(true,false).animate({"margin-left":"-="+len%4*250});
-        }else if(parseInt(ul.css("margin-left"))<-1000*(Math.floor(len/4)-1)){
-            ul.stop(true,false).animate({"margin-left":0});
+        if(len%4==0){
+            if(parseInt(ul.css("margin-left"))>-1000*(Math.floor(len/4)-1)){
+                ul.stop(true,false).animate({"margin-left":"-=1000"});
+            }else{
+                ul.stop(true,false).animate({"margin-left":0});
+            }
+        }else {
+            if(parseInt(ul.css("margin-left"))>-1000*(Math.floor(len/4)-1)){
+                ul.stop(true,false).animate({"margin-left":"-=1000"});
+            }else if(parseInt(ul.css("margin-left"))==-1000*(Math.floor(len/4)-1)){
+                ul.stop(true,false).animate({"margin-left":"-="+len%4*250});
+            }else if(parseInt(ul.css("margin-left"))<-1000*(Math.floor(len/4)-1)){
+                ul.stop(true,false).animate({"margin-left":0});
+            }
         }
     });
     thiscont.find(".left").click(function(){
         var ul=$(this).siblings("ul");
         var len=ul.find("li").length;
-        if(parseInt(ul.css("margin-left"))<-1000){
-            ul.stop(true,false).animate({"margin-left":"+=1000"});
-        }else if(parseInt(ul.css("margin-left"))>-1000&&parseInt(ul.css("margin-left"))<0){
-            ul.stop(true,false).animate({"margin-left":"+="+len%4*250});
-        }else if(parseInt(ul.css("margin-left"))>=0){
-            ul.stop(true,false).animate({"margin-left":-(1000*(Math.floor(len/4)-1)+len%4*250)});
+        if(len%4==0){
+            if(parseInt(ul.css("margin-left"))==0){
+                ul.stop(true,false).animate({"margin-left":-1000*(Math.floor(len/4)-1)});
+            }else if(parseInt(ul.css("margin-left"))>=-1000*(Math.floor(len/4)-1)){
+                ul.stop(true,false).animate({"margin-left":"+=1000"});
+            }
+        }else {
+            if(parseInt(ul.css("margin-left"))<-1000){
+                ul.stop(true,true).animate({"margin-left":"+=1000"});
+            }else if(parseInt(ul.css("margin-left"))>=-1000&&parseInt(ul.css("margin-left"))<0){
+                ul.stop(true,true).animate({"margin-left":"+="+len%4*250});
+            }else if(parseInt(ul.css("margin-left"))>=0){
+                ul.stop(true,true).animate({"margin-left":-(1000*(Math.floor(len/4)-1)+len%4*250)});
+            }
         }
     });
 }
