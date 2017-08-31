@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+
+	<div class="city-picker-select"></div>
+	<!-- end .city-picker-select -->
+
+    <a>按钮</a>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/citydata.js"></script>
+	<script type="text/javascript" src="js/cityPicker-1.0.0.js?v=1"></script>
+	<script type="text/javascript">
+		$(function () {
+
+			//原生城市-无联动
+			var select = $('.city-picker-select').cityPicker({
+				dataJson: cityData,
+				renderMode: false,
+				linkage: false
+			});
+
+		});
+
+$("a").click(function(){
+    alert($(".province option:selected").attr("data-title")+","+$(".city option:selected").attr("data-title")+","+$(".district option:selected").attr("data-title"))
+});
+	</script>
+</body>
+
+</html>

@@ -15,3 +15,4 @@
 13. 有时候UC浏览器</h>标签text-align:center;不生效；设置宽度margin: auto;<br />
 14. trigger()可用作自动执行事件；e.g.  $a.trigger("click") 自动执行a的点击事件<br />
 15. a.indexOf(b) 搜索字符串a中第一次匹配b的位置，从0开始，未搜索到返回-1；<br />
+16. 文字两段对其可在文字容器添加text-align:justify;属性，在容器内添加</span>元素，给</span>元素添加display:inline-block;padding-left:100%;<br />
