@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <style>
+*{
+    padding: 0;
+    margin: 0;
+}
+.scratch {
+    width: 626px;
+    height: 149px;
+    line-height: 149px;
+    margin: auto;
+    border: 4px solid #fff;
+    border-radius: 4px;
+    margin-top: 130px;
+    background: #fcec8a;
+}
+.scratch #c1{
+    width:626px;
+    height:149px;
+    text-align:center;
+    z-index: 2;
+    cursor: pointer;
+}
+.scratch .info{
+    position:absolute;
+    width:626px;
+    height:149px;
+    text-align:center;
+}
+.scratch .info span{
+    display: block;
+    font-size: 44px;
+    color: rgb(245, 27, 99);
+    font-weight: bold;
+}
+.oh {
+    overflow: hidden;
+}
+.pr {
+    position: relative;
+}
+.pa {
+    position: absolute;
+}
+.tac {
+    text-align: center;
+}
+.db {
+    display: block;
+}
+        </style>
+    </head>
+    <body>
+        <div class="oh pr">
+            <span class="scratchnum tac pa db">您还有<em></em>次机会</span>
+            <div class="pr scratch">
+                <div class="info">
+                    <span id="prompt"></span>
+                </div>
+                <canvas id="c1" class="pa"></canvas>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+var t = 3;          //次数
+$(".scratchnum em").text(t);
+var c1;				//画布
+var ctx;			//画笔
+var ismousedown;	//标志用户是否按下鼠标或开始触摸
+var fontem = parseInt(window.getComputedStyle(document.documentElement, null)["font-size"]);//这是为了不同分辨率上配合@media自动调节刮的宽度
+/* 页面加载后开始初始化画布 */
+window.onload = function(){	
+    c1 = document.getElementById("c1");
+    c1.width=c1.clientWidth;
+    c1.height=c1.clientHeight;
+    ctx = c1.getContext("2d");
+    //PC端的处理
+    c1.addEventListener("mousemove",eventMove,false);
+    c1.addEventListener("mousedown",eventDown,false);
+    c1.addEventListener("mouseup",eventUp,false);
+    //移动端的处理
+    c1.addEventListener('touchstart', eventDown,false);
+    c1.addEventListener('touchend', eventUp,false);
+    c1.addEventListener('touchmove', eventMove,false);
+    //初始化
+    initCanvas();
+}
+//初始化画布，画灰色的矩形铺满
+function initCanvas(){
+    var img=new Image();
+    //刮层背景图片，不能跨域否则getImageData报错
+    img.src="/scratchbg.jpg";
+    ctx.fillStyle = ctx.createPattern(img, "repeat");
+    //ctx.fillStyle = '#aaaaaa';
+    ctx.fillRect(0,0,c1.clientWidth,c1.clientHeight);
+    ctx.fill();
+    ctx.font = "60px Arial"
+        ctx.textAlign = "center";
+    ctx.fillStyle = "#fff";
+    ctx.fillText("刮开此图层",c1.width/2,100);
+    ctx.globalCompositeOperation = 'destination-out';
+}
+//先从后台获取值，然后执行eventDown，否则每次都会获取；
+function eventDown(e){
+    e.preventDefault();
+    //判断次数
+    if(t>0){
+        ismousedown=true;
+        //防止挂完看到提示后强行刷新，在点击时扣除次数
+        t--;
+        $(".scratchnum em").text(t);
+        if(t){//条件是否刮中，替换底层文字
+            document.getElementById("prompt").innerHTML="谢谢参与！"
+        }else{
+            document.getElementById("prompt").innerHTML="中奖"
+        }
+    }else {
+        alert("没有次数");
+    }
+}
+function eventUp(e){
+    e.preventDefault();
+    var a = ctx.getImageData(0,0,c1.width,c1.height);
+    var j=0;
+    for(var i=3;i<a.data.length;i+=4){
+        if(a.data[i]==0)j++;
+    }
+    //后面的注释为示例名，按数字注释或取消当前行注释
+    //松开后刮层隐藏，
+    ctx.fillStyle = 'none';//1
+    ctx.fillRect(0,0,c1.clientWidth,c1.clientHeight);//1
+    ctx.fill();//1
+    //当被刮开的区域等于一半(a.data.length/8)时，则可以开始处理结果
+    //if(j>=a.data.length/20){//2
+        if(t){//条件是否刮中，展示提示层
+            alert("中奖");
+            window.location.reload();//关掉提示层时需要刷新，或者重载canvas，推荐刷新。
+        }else{
+            alert("未中奖");
+            window.location.reload();
+        }
+    //}//2
+    ismousedown=false;
+    //禁用canvas，防止未刷新点击扣次数
+    $("#c1").css("pointer-events","none");//1
+}
+function eventMove(e){
+    e.preventDefault();
+    if(ismousedown) {
+        if(e.changedTouches){
+            e=e.changedTouches[e.changedTouches.length-1];
+        }
+        //画笔坐标
+        var x =  e.clientX - c1.getBoundingClientRect().left * (c1.width/c1.getBoundingClientRect().width);
+        var y = e.clientY - c1.getBoundingClientRect().top * (c1.height/c1.getBoundingClientRect().height);
+        ctx.beginPath();
+        //画笔大小
+        ctx.arc(x, y, fontem*2, 0, Math.PI * 2,true);
+        c1.style.display = 'none';
+        c1.offsetHeight;
+        c1.style.display = 'inherit'; 
+        ctx.fill();
+    }
+}
+    </script>
+</html>
