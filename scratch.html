@@ -54,7 +54,7 @@
 }
         </style>
     </head>
-    <body>
+    <body id="box">
         <div class="oh pr">
             <span class="scratchnum tac pa db">您还有<em></em>次机会</span>
             <div class="pr scratch">
@@ -78,13 +78,9 @@ window.onload = function(){
     c1.width=c1.clientWidth;
     c1.height=c1.clientHeight;
     ctx = c1.getContext("2d");
-    //PC端的处理
     c1.addEventListener("mousemove",eventMove,false);
     c1.addEventListener("mousedown",eventDown,false);
-    c1.addEventListener("mouseup",eventUp,false);
-    //移动端的处理
     c1.addEventListener('touchstart', eventDown,false);
-    c1.addEventListener('touchend', eventUp,false);
     c1.addEventListener('touchmove', eventMove,false);
     //初始化
     initCanvas();
@@ -92,7 +88,7 @@ window.onload = function(){
 //初始化画布，画灰色的矩形铺满
 function initCanvas(){
     var img=new Image();
-    //刮层背景图片，不能跨域否则getImageData报错
+    //刮层背景图片，有bug，建议用纯色
     img.src="/scratchbg.jpg";
     ctx.fillStyle = ctx.createPattern(img, "repeat");
     //ctx.fillStyle = '#aaaaaa';
@@ -104,9 +100,12 @@ function initCanvas(){
     ctx.fillText("刮开此图层",c1.width/2,100);
     ctx.globalCompositeOperation = 'destination-out';
 }
-//先从后台获取值，然后执行eventDown，否则每次都会获取；
 function eventDown(e){
     e.preventDefault();
+    //点击后加载eventUp事件，防止误触发
+    //给最外层绑定抬起事件，防止鼠标在canvas外松开时不生效。
+    document.getElementById("box").addEventListener("mouseup",eventUp,false);
+    document.getElementById("box").addEventListener('touchend', eventUp,false);
     //判断次数
     if(t>0){
         ismousedown=true;
@@ -123,27 +122,29 @@ function eventDown(e){
     }
 }
 function eventUp(e){
-    e.preventDefault();
-    var a = ctx.getImageData(0,0,c1.width,c1.height);
-    var j=0;
-    for(var i=3;i<a.data.length;i+=4){
-        if(a.data[i]==0)j++;
-    }
-    //后面的注释为示例名，按数字注释或取消当前行注释
-    //松开后刮层隐藏，
-    ctx.fillStyle = 'none';//1
-    ctx.fillRect(0,0,c1.clientWidth,c1.clientHeight);//1
-    ctx.fill();//1
-    //当被刮开的区域等于一半(a.data.length/8)时，则可以开始处理结果
-    //if(j>=a.data.length/20){//2
+    if(ismousedown){//判断是否触发Down
+        e.preventDefault();
+        var a = ctx.getImageData(0,0,c1.width,c1.height);
+        var j=0;
+        for(var i=3;i<a.data.length;i+=4){
+            if(a.data[i]==0)j++;
+        }
+        //后面的注释为示例名，按数字注释或取消当前行注释
+        //1是松开鼠标后清空刮层 2是刮开一定区域松开后触发
+        ctx.fillStyle = 'none';//1
+        ctx.fillRect(0,0,c1.clientWidth,c1.clientHeight);//1
+        ctx.fill();//1
+        //当被刮开的区域等于一半(a.data.length/8)时，则可以开始处理结果
+        //if(j>=a.data.length/20){//2
         if(t){//条件是否刮中，展示提示层
             alert("中奖");
-            window.location.reload();//关掉提示层时需要刷新，或者重载canvas，推荐刷新。
+            //window.location.reload();//关掉提示层时需要刷新，或者重载canvas，推荐刷新。
         }else{
             alert("未中奖");
-            window.location.reload();
+            //window.location.reload();
         }
-    //}//2
+        //}//2
+    }
     ismousedown=false;
     //禁用canvas，防止未刷新点击扣次数
     $("#c1").css("pointer-events","none");//1
