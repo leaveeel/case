@@ -2,7 +2,7 @@
 <html>
     <body>
         <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
-        <span class="ArriveDate" style="display:none">Sep 18 10:43:00 CST 2017</span><span class="fr Countdown"></span>
+        <span class="ArriveDate" style="display:none">Sep 19 10:43:00 CST 2017</span><span class="fr Countdown"></span>
         <script>
 var len=$(".ArriveDate").length;//如果同页面有多个时间对比；
 setInterval(function(){
@@ -11,7 +11,6 @@ setInterval(function(){
         var finishdate=new Date(time);
         finishdate.setHours(finishdate.getHours()-14);//cst转换成gmt, 时间-14;
         var alls,m,h,s;
-        $(".Countdown").eq(e).html('还剩：'+h+'：'+m+'：'+s);
         var nowdate=new Date();
         if(finishdate>nowdate){
             alls=parseInt((finishdate-nowdate)/1000);
