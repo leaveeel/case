@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <body>
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <span class="ArriveDate" style="display:none">Sep 18 10:43:00 CST 2017</span><span class="fr Countdown"></span>
+        <script>
+var len=$(".ArriveDate").length;//如果同页面有多个时间对比；
+setInterval(function(){
+    for(var e=0;e<len;e++){
+        var time=$(".ArriveDate").eq(e).html();//后台获取时间置入，input的value只能得到Sep, 空格后的获取不到；
+        var finishdate=new Date(time);
+        finishdate.setHours(finishdate.getHours()-14);//cst转换成gmt, 时间-14;
+        var alls,m,h,s;
+        $(".Countdown").eq(e).html('还剩：'+h+'：'+m+'：'+s);
+        var nowdate=new Date();
+        if(finishdate>nowdate){
+            alls=parseInt((finishdate-nowdate)/1000);
+            h=parseInt(alls/60/60);
+            m=parseInt(alls/60%60);
+            s=alls%60;
+            if(h<10) h="0"+h;
+            if(m<10) m="0"+m;
+            if(s<10) s="0"+s;
+            $(".Countdown").eq(e).html('还剩：'+h+'：'+m+'：'+s);
+        }else {
+            $(".Countdown").eq(e).html('还剩：00：00：00');
+        }
+    }
+},1000);
+        </script>
+    </body>
+</html>
