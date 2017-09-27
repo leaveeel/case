@@ -1,0 +1,274 @@
+<!--
+1.搜索框筛选demo是单独一处筛选时的方法，没有考虑到多处筛选，进行修改;
+2.防止用户输入全称不点击列表而无法获得id，进行了判断，焦点所在输入框添加change标记，点击列表后添加id标记，点击其他位置没有id时清空;
+3.
+-->
+<!doctype html>
+<html>
+    <head>
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <style>
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 0;
+    font-style: normal;
+    outline: none;
+    text-decoration: none;
+    color: #000;
+}
+.inputbox{
+    margin-bottom: 10px;
+}
+.inputbox .delselect{
+    line-height: 30px;
+    font-size: 14px;
+    color: red;
+    margin-left:10px;
+}
+.select {
+    height: 20px;
+    width: 206px;
+    line-height: 28px;
+    padding: 4px 6px;
+    border:1px solid #ccc;
+    border-radius:4px;
+}
+.selectbox {
+    max-height: 150px;
+    width: 220px;
+    top: 30px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.selectbox ul {
+    width: 218px;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 5;
+    margin:0;
+}
+.selectbox ul li {
+    border-bottom: 1px solid #ccc;
+    width: 206px;
+    padding: 4px 6px;
+    height: 21px;
+    line-height: 21px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    display: none;
+}
+.addconpany {
+    top: 0;
+    position: absolute;
+    left: 450px;
+    line-height: 30px;
+    font-size: 14px;
+    color: blue;
+}
+.delselect {
+    margin-left: 10px;
+}
+.show {
+    display: block!important;
+}
+.hover {
+    background: #ccc;
+}
+.pa {
+    position: absolute;
+}
+.fl {
+    float: left;
+}
+.oh {
+    overflow: hidden;
+}
+.db {
+    display: block;
+}
+.pr {
+    position: relative;
+}
+        </style>
+    </head>
+    <body>
+        <input id="box" type="hidden" />
+        <div class="controls oh">
+            <div class="inputbox oh">
+                <input class="select db fl" oninput="OnInput()" onpropertychange="OnPropChanged()" fid="1" value="默认" /><a class="delselect fl" style="display:none;">删除</a>
+            </div>
+            <div class="pa selectbox">
+                <ul class="oh">
+                    <li class="fl">111111</li>
+                    <li class="fl">211111</li>
+                    <li class="fl">31111</li>
+                    <li class="fl">411</li>
+                    <li class="fl">5111111111</li>
+                    <li class="fl">6111111</li>
+                    <li class="fl">71111</li>
+                    <li class="fl">811</li>
+                    <li class="fl">9111111111</li>
+                    <li class="fl">1011111</li>
+                    <li class="fl">111111</li>
+                    <li class="fl">12111</li>
+                    <li class="fl">131</li>
+                    <li class="fl">1411111111</li>
+                    <li class="fl">1511111</li>
+                    <li class="fl">161111</li>
+                    <li class="fl">17111</li>
+                    <li class="fl">181</li>
+                    <li class="fl">1911111111</li>
+                    <li class="fl">1101111</li>
+                    <li class="fl">11111111111111</li>
+                    <li class="fl">112111</li>
+                    <li class="fl">11311</li>
+                    <li class="fl">114</li>
+                    <li class="fl">1151111111</li>
+                    <li class="fl">1161111</li>
+                    <li class="fl">11711111111111</li>
+                    <li class="fl">118111</li>
+                    <li class="fl">11911</li>
+                    <li class="fl">1110</li>
+                    <li class="fl">1111111111</li>
+                    <li class="fl">1112111</li>
+                    <li class="fl">11131111111111</li>
+                </ul>
+            </div>
+            <a class="addconpany">新增</a>
+        </div>
+        <a class="url">跳转</a>
+        <script>
+$(".addconpany").click(function(){
+    var leh=$(".inputbox").length;
+    if(leh<5){//输入框上限
+        $(".delselect").show();
+        $(".inputbox:last").after('<div class="inputbox oh"><input class="select db fl" oninput="OnInput()" onpropertychange="OnPropChanged()" /><a class="delselect fl">删除</a></div>')
+    }
+});
+//至少保留一个输入框
+$(document).on('click', '.delselect', function(){
+    var index=$(this).index(".delselect");
+    if($(".inputbox").length>1){
+        $(".inputbox").eq(index).remove();
+        if($(".inputbox").length==1){
+            $(".delselect").hide();
+        }
+    }
+});
+//控制选择器的位置始终在焦点input下
+var inputidx;
+$(document).on('focus', '.select', function(){
+    $(".selectbox").css("top",$(this).position().top+30);
+    inputidx=$(this).index("input.select");
+});
+//监控输入框改变
+function OnInput () {
+    $(".select:focus").attr("fid","").addClass("change");//重置id标记，添加修改标记
+    $(".selectbox ul li").removeClass("hover");
+    var sval = $(".select:focus").val();
+    var index=0;
+    if(sval!=""){
+        //ajax位置
+        var len=$(".selectbox ul li").length;
+        for (var i = 0; i < len; i++) {
+            if($(".selectbox ul li").eq(i).html().indexOf(sval)!=-1){
+                $(".selectbox ul li").eq(i).addClass("show");
+                index++;
+            }else{
+                $(".selectbox ul li").eq(i).removeClass("show");
+            }
+        }
+        $(".selectbox ul li").click(function(){
+            var text=$(this).text();
+            $(".select").eq(inputidx).val(text).attr("fid",text).parent().siblings("ul").find("li").removeClass("show");
+        });
+        $(".selectbox ul li").hover(function(){
+            $(this).addClass("hover").siblings().removeClass("hover");
+        },function(){
+            $(this).removeClass("hover");
+        });
+    }else {
+        //清空id标记，删除储存区id
+        $(".select:focus").attr("fid","");
+        $(".selectbox ul li").removeClass("show");
+        var fids = "";
+        $(".select.db").each(function(){
+            if($(this).attr("fid")){
+                fids=fids+$(this).attr("fid")+",";
+            }
+        });
+        $("#box").val(fids);
+    }
+}
+// IE8
+function OnPropChanged(){
+    $(".selectbox ul li").removeClass("hover");
+    if (event.propertyName.toLowerCase () == "value") {
+        var sval = $(".select:focus").val();
+        if(sval!=""){
+            var len=$(".selectbox ul li").length;
+            for (var i = 0; i < len; i++) {
+                if($(".selectbox ul li").eq(i).html().indexOf(sval)!=-1){
+                    $(".selectbox ul li").eq(i).addClass("show");
+                    index++;
+                }else{
+                    $(".selectbox ul li").eq(i).removeClass("show");
+                }
+            }
+            $(".selectbox ul li").click(function(){
+                var text=$(this).text();
+                $(".select").eq(inputidx).val(text).attr("fid",text).parent().siblings("ul").find("li").removeClass("show");
+            });
+            $(".selectbox ul li").hover(function(){
+                $(this).addClass("hover").siblings().removeClass("hover");
+            },function(){
+                $(this).removeClass("hover");
+            });
+        }else {
+            $(".select:focus").attr("fid","");
+            $(".selectbox ul li").removeClass("show");
+            var fids = "";
+            $(".select.db").each(function(){
+                if($(this).attr("fid")){
+                    fids=fids+$(this).attr("fid")+",";
+                }
+            });
+            $("#box").val(fids);
+        }
+    }
+}
+$(document).click(function(){
+    $(".selectbox ul li").removeClass("show hover");
+    if($(".select.change").attr("fid")==""){
+        $(".select.change").val("");
+    }
+    $(".select").removeClass("change");
+    //初始化id，遍历有id的input，添加到储存区
+    var fids = "";
+    $(".select.db").each(function(){
+        if($(this).attr("fid")){
+            fids=fids+$(this).attr("fid")+",";
+        }
+    });
+    $("#box").val(fids);
+});
+//有输入框为空时禁止跳转
+$(".url").click(function(){
+    for(var l=0;l<$(".select.db").length;l++){
+        if($(".select.db").eq(l).val()==""||$(".select.db").attr("fid")==""){
+            alert("请输入或删除");
+            return false;
+        }
+    }
+    $(".select.db").each(function(){
+        if($(this).val()!="" && $(this).attr("fid")!=""){
+            window.location.href="http://www.baidu.com";
+        }
+    });
+});
+        </script>
+    </body>
+</html>
