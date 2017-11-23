@@ -2,7 +2,13 @@
 <html>
     <body>
         <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
-        <span class="ArriveDate" style="display:none">Sep 19 10:43:00 CST 2017</span><span class="fr Countdown"></span>
+        <span class="ArriveDate" style="display:none">Sep 19 10:43:00 CST 2017</span>
+        <div class="time">
+            <em class="day"></em>
+            <em class="hour"></em>
+            <em class="min"></em>
+            <em class="sec"></em>
+        </div>
         <script>
 var len=$(".ArriveDate").length;//如果同页面有多个时间对比；
 setInterval(function(){
@@ -14,15 +20,20 @@ setInterval(function(){
         var nowdate=new Date();
         if(finishdate>nowdate){
             alls=parseInt((finishdate-nowdate)/1000);
-            h=parseInt(alls/60/60);
+            d=parseInt(alls/60/60/24);
+            h=parseInt(alls/60/60%24);
             m=parseInt(alls/60%60);
             s=alls%60;
+            if(d<10) d="0"+d;
             if(h<10) h="0"+h;
             if(m<10) m="0"+m;
             if(s<10) s="0"+s;
-            $(".Countdown").eq(e).html('还剩：'+h+'：'+m+'：'+s);
+            $(".time .day").eq(e).html(d);
+            $(".time .hour").eq(e).html(h);
+            $(".time .min").eq(e).html(m);
+            $(".time .sec").eq(e).html(s);
         }else {
-            $(".Countdown").eq(e).html('还剩：00：00：00');
+            $(".time").eq(e).find("em").html("00");
         }
     }
 },1000);
