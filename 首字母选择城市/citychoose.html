@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>城市</title>
+        <meta name="viewport" content="target-densitydpi=320,width=750,user-scalable=no" />
+        <link href="../css/public.css" rel="stylesheet" type="text/css" />
+        <link href="citychoose.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="http://m.jushewang.com/js/jquery.min.js"></script>
+        <script src="jquery.charfirst.pinyin.js"></script>
+        <script src="citychoose.js"></script>
+    </head>
+    <body>
+        <div class="showpage oh">
+            <div class="nav oh">
+                <div class="city fl">
+                    <ul class="oh">
+                        <li class="fl">北京市<input class="dn" value="1" /></li>
+                        <li class="fl">天津市<input class="dn" value="2" /></li>
+                        <li class="fl">上海市<input class="dn" value="3" /></li>
+                        <li class="fl">重庆市<input class="dn" value="4" /></li>
+                        <li class="fl">安徽<input class="dn" value="5" /></li>
+                        <li class="fl">福建<input class="dn" value="6" /></li>
+                        <li class="fl">广东<input class="dn" value="7" /></li>
+                        <li class="fl">广西<input class="dn" value="8" /></li>
+                        <li class="fl">甘肃<input class="dn" value="9" /></li>
+                        <li class="fl">贵州<input class="dn" value="10" /></li>
+                        <li class="fl">湖北<input class="dn" value="11" /></li>
+                        <li class="fl">湖南<input class="dn" value="12" /></li>
+                        <li class="fl">河北<input class="dn" value="13" /></li>
+                        <li class="fl">黑龙江<input class="dn" value="14" /></li>
+                        <li class="fl">海南<input class="dn" value="15" /></li>
+                        <li class="fl">河南<input class="dn" value="16" /></li>
+                        <li class="fl">吉林<input class="dn" value="17" /></li>
+                        <li class="fl">江苏<input class="dn" value="18" /></li>
+                        <li class="fl">江西<input class="dn" value="19" /></li>
+                        <li class="fl">辽宁<input class="dn" value="20" /></li>
+                        <li class="fl">青海<input class="dn" value="21" /></li>
+                        <li class="fl">四川<input class="dn" value="22" /></li>
+                        <li class="fl">山东<input class="dn" value="23" /></li>
+                        <li class="fl">陕西<input class="dn" value="24" /></li>
+                        <li class="fl">山西<input class="dn" value="25" /></li>
+                        <li class="fl">台湾<input class="dn" value="26" /></li>
+                        <li class="fl">云南<input class="dn" value="27" /></li>
+                        <li class="fl">浙江<input class="dn" value="28" /></li>
+                        <li class="fl">内蒙古<input class="dn" value="29" /></li>
+                        <li class="fl">宁夏<input class="dn" value="30" /></li>
+                        <li class="fl">西藏<input class="dn" value="31" /></li>
+                        <li class="fl">新疆<input class="dn" value="32" /></li>
+                        <li class="fl">香港<input class="dn" value="33" /></li>
+                        <li class="fl">澳门<input class="dn" value="34" /></li>
+                    </ul>
+                </div>
+                <a class="more fr">MORE>></a>
+            </div>
+        </div>
+        <div class="choosecity pr oh dn">
+            <div class="top">
+                <a class="back fl tac"><</a>
+                <h2 class="tac fl">选择城市</h2>
+                <a class="sure fr tac">确定</a>
+            </div>
+            <div id="letter" ></div>
+            <div class="sort_box">
+                <div class="sort_list">
+                    <div class="num_name">北京市<input class="dn" value="1" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">天津市<input class="dn" value="2" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">上海市<input class="dn" value="3" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">重庆市<input class="dn" value="4" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">安徽<input class="dn" value="5" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">福建<input class="dn" value="6" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">广东<input class="dn" value="7" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">广西<input class="dn" value="8" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">甘肃<input class="dn" value="9" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">贵州<input class="dn" value="10" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">湖北<input class="dn" value="11" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">湖南<input class="dn" value="12" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">河北<input class="dn" value="13" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">黑龙江<input class="dn" value="14" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">海南<input class="dn" value="15" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">河南<input class="dn" value="16" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">吉林<input class="dn" value="17" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">江苏<input class="dn" value="18" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">江西<input class="dn" value="19" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">辽宁<input class="dn" value="20" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">青海<input class="dn" value="21" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">四川<input class="dn" value="22" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">山东<input class="dn" value="23" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">陕西<input class="dn" value="24" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">山西<input class="dn" value="25" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">台湾<input class="dn" value="26" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">云南<input class="dn" value="27" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">浙江<input class="dn" value="28" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">内蒙古<input class="dn" value="29" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">宁夏<input class="dn" value="30" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">西藏<input class="dn" value="31" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">新疆<input class="dn" value="32" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">香港<input class="dn" value="33" /></div>
+                </div>
+                <div class="sort_list">
+                    <div class="num_name">澳门<input class="dn" value="34" /></div>
+                </div>
+            </div>
+            <div class="initials tac">
+                <ul>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

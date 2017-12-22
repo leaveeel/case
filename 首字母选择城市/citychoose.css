@@ -1,0 +1,158 @@
+.dn {
+    display: none;
+}
+.top {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 88px;
+    background: #fff;
+    border-bottom: 2px solid #e0e0e0;
+}
+.top .back {
+    width: 88px;
+    height: 88px;
+    line-height: 88px;
+    font-size: 50px;
+}
+.top h2 {
+    width: 540px;
+    line-height: 88px;
+    font-weight: normal;
+}
+.top .sure {
+    width: 122px;
+    font-size: 32px;
+    line-height: 88px;
+    color: rgb(237, 15, 56);
+}
+.choosecity {
+    top: 0;
+    left: 0;
+}
+.nav {
+    padding: 0 30px;
+    margin-top: 18px;
+}
+.nav .city {
+    width: 540px;
+    color: rgb(51, 51, 51);
+    font-size: 26px;
+    line-height: 58px;
+    height: 68px;
+    border-bottom: 1px solid #e0e0e0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.nav .city li {
+    border-bottom: 4px solid #fff;
+    margin-right: 68px;
+}
+.nav .city li.choose {
+    color: rgb(237, 15, 56);
+    border-bottom-color: #ed0f38;
+}
+.nav .more {
+    width: 141px;
+    font-size: 26px;
+    color: rgb(237, 15, 56);
+    height: 26px;
+    text-align: right;
+    border-left: 1px solid #858585;
+    line-height: 26px;
+    margin-top: 18px;
+}
+.company {
+    height: 250px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-bottom: 46px;
+}
+.company ul {
+    padding: 30px 0;
+}
+.company ul li {
+    width: 599px;
+    height: 160px;
+    padding-top: 30px;
+}
+.company ul li:nth-child(2n-1){
+    background: #fff;
+}
+.company ul li:nth-child(2n){
+    background: #f0f0f0;
+}
+.company ul li h3 {
+    width: 153px;
+    font-size: 40px;
+    color: rgb(237, 15, 56);
+    line-height: 32px;
+}
+.company ul li span {
+    width: 446px;
+}
+.company ul li span h4 {
+    line-height: 30px;
+    color: rgb(7, 4, 11);
+    font-size: 30px;
+    font-weight: normal;
+}
+.company ul li span p {
+    font-size: 22px;
+    color: rgb(7, 4, 11);
+    line-height: 30px;
+    margin-top: 10px;
+}
+#letter{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    font-size: 75px;
+    color: #555;
+    text-align: center;
+    line-height: 100px;
+    background: rgba(145,145,145,0.6);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin:-50px 0px 0px -50px;
+    z-index: 99;
+    display: none;
+}
+.choosecity .sort_box{
+    margin-top: 90px;
+    padding: 0 30px;
+    overflow: hidden;
+}
+.choosecity .sort_list{
+    height: 91px;
+    line-height: 91px;
+    font-size: 30px;
+    color: rgb(102, 102, 102);
+    border-bottom:1px solid #ddd;
+}
+.choosecity .sort_list.click {
+    color: rgb(237, 15, 56);
+}
+.initials{
+    position: fixed;
+    top: 50%;
+    right: 30px;
+    width: 34px;
+    font-size: 24px;
+    z-index: 99;
+    background: rgba(145,145,145,0);
+}
+.initials li {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    color: rgb(102, 102, 102);
+    margin: 4px 0;
+    border-radius: 50%;
+}
+.initials li.show {
+    background: #ed0f38;
+    color: rgb(255, 255, 255);
+}
