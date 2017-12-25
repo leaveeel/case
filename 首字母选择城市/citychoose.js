@@ -51,12 +51,12 @@ $(function(){
             },1000);
             //滚动到相应位置
             if($(this).index()==0){
-                $('html,body').animate({scrollTop: '0px'}, 0);
+                $('html,body').scrollTop(0);
             }else{
                 var letter = $(this).text();
                 if($('#'+letter).length>0){
                     var LetterTop = $('#'+letter).position().top;
-                    $('html,body').animate({scrollTop: LetterTop-92+'px'}, 0);
+                    $('html,body').scrollTop(LetterTop-92);
                 }
             }
         });
