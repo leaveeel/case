@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>移动端滑动翻页浏览图片</title>
+        <meta name="viewport" content="target-densitydpi=320,width=750,user-scalable=no" />
+        <link href="../css/public.css" rel="stylesheet" type="text/css" />
+        <link href="activity.css" rel="stylesheet" type="text/css" />
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="pic">
+            <span class="db">
+                <img class="fl" style="background:#f00" index=1 width=386 height=376 />
+                <img class="fl" style="background:#0f0" index=0 width=386 height=376 />
+                <img class="fl" style="background:#00f" index=2 width=386 height=376 />
+            </span>
+        </div>
+        <div class="box oh dn" id="showTagId">
+            <ul>
+            </ul>
+            <div class="dot oh">
+            </div>
+            <h4 class="tac"></h4>
+            <a class="close db tac">×</a>
+        </div>
+        <script src="activity.js"></script>
+    </body>
+</html>
