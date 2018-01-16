@@ -1,0 +1,29 @@
+.platebox{
+	width: 90%;
+	max-width: 300px;
+	height: 300px;
+	margin: 20px auto 50px;
+	position:relative;
+}
+.plate{
+	width:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	transform-origin: 50% 50%;
+	-ms-transform-origin:50% 50%;
+	-webkit-transform-origin:50% 50%;
+	-moz-transform-origin:50% 50%;
+	-o-transform-origin:50% 50%;
+}
+.btn{
+	width: 31px;
+	position: absolute;
+	top: 72px;
+	left:135px;
+	transform-origin: 50% 85%;
+	-ms-transform-origin:50% 85%;
+	-webkit-transform-origin:50% 85%;
+	-moz-transform-origin:50% 85%;
+	-o-transform-origin:50% 85%;
+}
