@@ -1,4 +1,4 @@
-function num(n,min,max,maxlength){//参数对应 （获取数量，最小index，最大index）
+function num(n,min,max,maxlength){//参数对应 （获取数量，最小值，最大值，最大位数）
     var arr=[];
     for(i=0;i<n;i++){
         arr[i]=parseInt(Math.random()*(max-min+1)+min);
