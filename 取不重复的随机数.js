@@ -10,7 +10,7 @@ function num(n,min,max,maxlength){//参数对应 （获取数量，最小index�
 //		}
         //先补0截取位数
 //        arr[i]="000000"+arr[i];
-//        arr[i]=arr[i].substr(arr[i].length-6);
+//        arr[i]=arr[i].substr(-6);
 
         for(j=0;j<i;j++){
             if(arr[i]==arr[j]){
