@@ -12,26 +12,26 @@ a { display:inline-block;}
 body {
     font-size: 0;
 }
-.head {
+header {
     display: flex;
     justify-content: space-between;
     background: #ff4683;
 }
-.head h1 {
+header h1 {
     font-weight: normal;
     font-size: .36rem;
     line-height: .88rem;
     color: rgb(255, 255, 255);
 }
-.head a {
+header a {
     width: .88rem;
     height: .88rem;
 }
-.head .home {
+header .home {
     background: url(img/icon1.png) no-repeat center;
     background-size: 100%;
 }
-.head .call {
+header .call {
     background: url(img/icon2.png) no-repeat center;
     background-size: 100%;
 }
@@ -227,7 +227,6 @@ hgroup:after {
 }
 .user {
     margin-top: .23rem;
-    margin-bottom: 3.5rem;
 }
 .user nav {
     border-bottom: .01rem solid #cccccc;
@@ -301,6 +300,19 @@ hgroup:after {
     color: rgb(255, 90, 0);
     text-decoration: underline;
 }
+.bottomview {
+    margin-bottom: 1.1rem;
+}
+.bottomview .download {
+    background: url(img/pic6.png) no-repeat center;
+    background-size: 100%;
+    width: 100%;
+    height: 1.08rem;
+}
+.bottomview .record {
+    width: 100%;
+    height: 1.32rem;
+}
 aside {
     position: fixed;
     width: .8rem;
@@ -329,16 +341,6 @@ aside .call {
 footer {
     position: fixed;
     bottom: 0;
-}
-footer .download {
-    background: url(img/pic6.png) no-repeat center;
-    background-size: 100%;
-    width: 100%;
-    height: 1.08rem;
-}
-footer .record {
-    width: 100%;
-    height: 1.32rem;
 }
 footer .b_btn {
     display: flex;

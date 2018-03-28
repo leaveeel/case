@@ -1,3 +1,4 @@
+//动态更改比例，e.g. 此demo按750px设计图100px根字号画的，比例为7.5（100 = 750 / 7.5），∴html{font-size} = 屏幕宽度 / 7.5；
 var deviceWidth = parseInt(window.screen.width);
 $("html").css({"font-size":deviceWidth/7.5});
 
@@ -11,13 +12,12 @@ function banner(){
     }
 }
 var t1=setInterval("banner()",3000);
-
 function casefun(){
     var len = $(".detail_box li").length,
-        w   = $(".detail_box li").width() + 10 ;
+        w   = $(".detail_box li").width() + 10 ;//js中尽量不使用px单位，间距用margin或padding在css中设置；
     $(".detail_box").width( len* w );
 }
-
+//本地跨域，需要在服务器运行；
 $.getJSON("/index", function(data){  
     $.each(data, function(i, item){
         $(".detail_box").append('<li><img src="img/d_pic' + item.num + '.png" /><span class="db"><text>' + item.text + '</text><i>' + item.price +'</i></span></li>');
