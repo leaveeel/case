@@ -1,8 +1,16 @@
+* { margin:0;padding:0;border:0;font-style:normal;outline:none;}
+ol, ul, li { list-style: none;}
+.oh { overflow:hidden;}
+.fl { float:left;}
+.fr { float:right;}
+.pr { position:relative;}
+.pa { position:absolute;}
+.tac { text-align: center;}
+.db { display: block;}
+a { display:inline-block;}
+.dn { display: none;}
 body {
     font-size: 0;
-}
-.dn {
-    display: none;
 }
 .head {
     display: flex;
