@@ -14,8 +14,10 @@ function banner(){
 var t1=setInterval("banner()",3000);
 function casefun(){
     var len = $(".detail_box li").length,
-        w   = $(".detail_box li").width() + 10 ;//js中尽量不使用px单位，间距用margin或padding在css中设置；
-    $(".detail_box").width( len* w );
+        //w   = $(".detail_box li").width() + 10 ;//js中尽量不使用px单位，间距用margin或padding在css中设置；
+        m   = parseInt($(".detail_box li").css("margin-left")) + parseInt($(".detail_box li").css("margin-right")),
+        w   = $(".detail_box li").width() + m;
+    $(".detail_box").width( len * w );
 }
 //本地跨域，需要在服务器运行；
 $.getJSON("/index", function(data){  
@@ -23,4 +25,14 @@ $.getJSON("/index", function(data){
         $(".detail_box").append('<li><img src="img/d_pic' + item.num + '.png" /><span class="db"><text>' + item.text + '</text><i>' + item.price +'</i></span></li>');
     });
     casefun();
+});
+
+function aside(){
+    $("aside").show();
+}
+var delay_show;
+$(window).scroll(function(){
+    clearTimeout(delay_show);
+    $("aside").hide();
+    delay_show = setTimeout(aside,1000);
 });

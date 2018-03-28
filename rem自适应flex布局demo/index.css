@@ -204,11 +204,12 @@ hgroup:after {
 .detail_box {
     display: flex;
     justify-content: space-between;
-    padding: 0 .2rem;
+    padding: 0 .15rem;
 }
 .detail_box li {
     width: 2.5rem;
     height: 3.16rem;
+    margin: 0 .05rem;
 }
 .detail_box img {
     width: 2.5rem;
