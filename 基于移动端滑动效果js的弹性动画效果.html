@@ -1,0 +1,97 @@
+<!--
+    基于移动端滑动效果.js的弹性动画，在头尾和不满足翻页条件时触发；
+    想把addEventListen集合成函数在animate的callback里，但是会有无法remove的bug；
+    如果做上下翻屏效果可以把对应关键字换成Y/top/height等；
+    上下翻屏有时会触发显示/隐藏浏览器地址栏，导致line值获取有误，因为增加/减少了地址栏的高度；
+    向上翻屏会触发浏览器下拉刷新，给body加overflow hidden可以屏蔽，但是看不到底部效果；
+-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=1000,user-scalable=no">
+        <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <style>
+* {margin:0;padding:0;border:0;font-style:normal;outline:none;}
+ol, ul, li {list-style: none;}
+        </style>
+    </head>
+    <body>
+        <div id="showTagId" style="width:1000px;overflow:hidden;">
+            <ul style="width:4000px;overflow:hidden;">
+                <li style="float:left"><img style="background:#f00;width:1000px;height:300px;" width="1000" height="300" /></li>
+                <li style="float:left"><img style="background:#ff0;width:1000px;height:300px;" width="1000" height="300" /></li>
+                <li style="float:left"><img style="background:#00f;width:1000px;height:300px;" width="1000" height="300" /></li>
+                <li style="float:left"><img style="background:#0f0;width:1000px;height:300px;" width="1000" height="300" /></li>
+            </ul>
+        </div>
+        <script>
+var startX, endX, smar, w = $("li").width(), move;// ， ， 起始位置， ， 移动距离
+document.getElementById("showTagId").addEventListener("touchstart", touchStart, false);
+document.getElementById("showTagId").addEventListener("touchmove", touchMove, false);
+document.getElementById("showTagId").addEventListener("touchend", touchEnd, false);
+function touchStart(event) {
+    var touch = event.touches[0];
+    startX = touch.pageX;
+    smar = parseInt($("ul").css("margin-left"));
+}
+function touchMove(event) {
+    var touch = event.touches[0];
+    endX = touch.pageX;
+    var line = startX - endX;//不用line而是新定义move，防止弹性动画中重定义冲突；
+    move = (endX - startX) * 0.1;//可自行调整移动距离比例
+    $("ul").css({"margin-left": smar + move });//拖动效果
+}
+function touchEnd(event) {
+    document.getElementById("showTagId").removeEventListener("touchstart", touchStart, false);//清除监听事件
+    document.getElementById("showTagId").removeEventListener("touchmove", touchMove, false);
+    document.getElementById("showTagId").removeEventListener("touchend", touchEnd, false);
+    function Ffunction(){//弹性函数
+        $("ul").animate({"margin-left":smar},100,"swing",function(){
+            function F(){
+                move=move*0.382;//弹性系数可自行调整
+                $("ul").animate({"margin-left":smar+move},100,"swing",function(){
+                    $("ul").animate({"margin-left":smar},100,"swing",function(){
+                        //重新监听
+                        document.getElementById("showTagId").addEventListener("touchstart", touchStart, false);
+                        document.getElementById("showTagId").addEventListener("touchmove", touchMove, false);
+                        document.getElementById("showTagId").addEventListener("touchend", touchEnd, false);
+                    });
+                });
+            }
+            move=move*0.382;
+            $("ul").animate({"margin-left":smar+move},100,"swing",function(){
+                $("ul").animate({"margin-left":smar},100,"swing",function(){
+                    F();
+                });
+            });
+        });
+    }
+    var line = startX - endX;
+    if (line > 300) {//触发翻页条件
+        if(smar>-3000){//为了方便取了固定值，可定义为关键字，值为(index-1)*width
+            $("ul").animate({"margin-left":smar - w},300,"swing",function(){
+                document.getElementById("showTagId").addEventListener("touchstart", touchStart, false);
+                document.getElementById("showTagId").addEventListener("touchmove", touchMove, false);
+                document.getElementById("showTagId").addEventListener("touchend", touchEnd, false);
+            });
+        }else{
+            Ffunction();
+        }
+    } else if (line < -300) {
+        if(smar<0){
+            $("ul").animate({"margin-left":smar + w},300,"swing",function(){
+                document.getElementById("showTagId").addEventListener("touchstart", touchStart, false);
+                document.getElementById("showTagId").addEventListener("touchmove", touchMove, false);
+                document.getElementById("showTagId").addEventListener("touchend", touchEnd, false);
+            });
+        }else{
+            Ffunction();
+        }
+    } else {
+        Ffunction();
+    }
+}
+        </script>
+    </body>
+</html>
