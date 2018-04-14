@@ -29,3 +29,4 @@
 27. 华为手机不支持background: #00000050 的写法；<br />
 28. 手机uc浏览器打开极速模式，如果使用rem给html设置font-size的写法会不识别，可用js设置字号；<br />
 29. 从最后一个'/'开始获取文件名，不包含目录层级 location.pathname.substr(location.pathname.lastIndexOf("/") + 1);<br/>
+30. 将对象转换成字符串JSON.stringify(object);
