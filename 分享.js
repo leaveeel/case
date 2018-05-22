@@ -9,7 +9,7 @@ function shareTo(url,title,pic) {
         window.open(sharesinastring, '分享到QQ好友', 'height=400,width=400,top=100,left=100');
     }
     if($(this).hasClass("qz")){
-    	var shareqqzonestring='http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?summary='+title+'&title=刮刮乐活动&url='+url+'&pic='+pic;
+    	var shareqqzonestring='http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?summary=&title='+title+'&url='+url+'&pic='+pic;
         window.open(shareqqzonestring,'newwindow','height=400,width=400,top=100,left=100');
     }
 }
