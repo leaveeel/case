@@ -1,4 +1,48 @@
-﻿# tips
+﻿# demo
+0. demo目录下记录case内的所有demo/关键字, 方便查找；<br />
+1. <a href="js转盘demo">js转盘</a><br />
+2. <a href="rem自适应flex布局demo">rem/flex布局</a><br />
+3. <a href="图片上传">基于webupload图片上传</a><br />
+4. <a href="地址">基于cityPicker选择省市区</a><br />
+5. <a href="手机商城demo">m端demo</a><br />
+6. <a href="环形统计图">环形统计图/同心圆</a><br />
+7. <a href="移动端滑动翻页浏览图片">滑动翻页/首尾循环</a><br />
+8. <a href="顺丰快递打印单">顺丰快递打印</a><br />
+9. <a href="首字母选择城市">城市首字母排序/选择</a><br />
+10. <a href="addiframe.html">插入iframe</a><br />
+11. <a href="scroll循环滚动.js">scroll首尾循环滚动/模块</a><br />
+12. <a href="url截取传递数据.js">url截取</a><br />
+13. <a href="价格拖动.rar">价格拖动/坐标尺</a><br />
+14. <a href="分享.js">pc分享到qq/微博/空间</a><br />
+15. <a href="刮刮卡.html">canvas刮刮卡</a><br />
+16. <a href="取不重复的随机数.js">不重复的随机数/随机颜色</a><br />
+17. <a href="可视区内不留空的轮播效果.html">不留空白的轮播/不足一页移动剩余距离</a><br />
+18. <a href="固定显示n条的翻页.js">翻页</a><br />
+19. <a href="城市定位.js">定位城市/省份/调取新浪接口</a><br />
+20. <a href="基于移动端滑动效果js的弹性动画效果.html">弹簧/弹性动画/滑动</a><br />
+21. <a href="对比时间倒计时.html">倒计时/固定截至时间</a><br />
+22. <a href="手机uc浏览器text-align兼容性.html">text-align兼容性</a><br />
+23. <a href="手机号码正则和判断.js">号码正则/已过期</a><br />
+24. <a href="抽奖demo.html">前端控制抽奖/不具安全性</a><br />
+25. <a href="搜索框筛选(支持多条筛选).html">搜索框/联想搜索/多条</a><br />
+26. <a href="搜索框筛选.html">搜索框/联想搜索/单条</a><br />
+27. <a href="敏感信息处理.js">敏感词处理/不具安全性</a><br />
+28. <a href="日期选择.zip">日历/选择日期</a><br />
+29. <a href="时间对比.js">比较时间</a><br />
+30. <a href="模拟select.html">模拟select</a><br />
+31. <a href="滚动条滚动和结束事件.js">浏览器滚动条事件</a><br />
+32. <a href="漏斗图冒泡.html">漏斗图/冒泡排序/</a><br />
+33. <a href="焦点图放大.html">图片轮播/焦点放大</a><br />
+34. <a href="移动端打开键盘定位input.js">移动端定位input</a><br />
+35. <a href="移动端滑动效果.js">touch事件</a><br />
+36. <a href="规定时间的倒计时.html">倒计时/固定计时时间</a><br />
+37. <a href="键盘按键动作.js">键盘动作/按下</a><br />
+38. <a href="随机颜色.html">随机颜色/已弃用</a><br />
+39. <a href="静态加载页面公共部分.js">公共部分异步加载</a><br />
+40. <a href="页面滚动到底部加载.js">页面滚动到底部事件/移动端翻页</a><br />
+41. <a href="首字母筛选.html">首字母筛选</a><br />
+
+# tips
 
 1. ie8不支持符号开头类名；<br />
 2. ie8某些情况不支持空a标签 (e.g. div>img+a) 可以将img作为div背景；<br />
@@ -29,4 +73,5 @@
 27. 华为手机不支持background: #00000050 的写法；<br />
 28. 手机uc浏览器打开极速模式，如果使用rem给html设置font-size的写法会不识别，可用js设置字号；<br />
 29. 从最后一个'/'开始获取文件名，不包含目录层级 location.pathname.substr(location.pathname.lastIndexOf("/") + 1);<br/>
-30. 将对象转换成字符串JSON.stringify(object);
+30. 将对象转换成字符串JSON.stringify(object);<br />
+31. 取x位小数 .toFixed(x);
