@@ -13,7 +13,9 @@
     border-left: 143px solid transparent;
     border-right: 143px solid transparent;
     border-top: 248px solid #e6e6e6;
-    position:relative;margin-top:300px;margin-left:500px;
+    position:relative;
+    margin-top:300px;
+    margin-left:500px;
 
 }
 .max input{
@@ -65,16 +67,17 @@ function add(){
             return (color+='0123456789abcdef'[Math.floor(Math.random()*16)]) && (color.length==6) ? color : arguments.callee(color);
         })('');
     }
+    $(".max").append('<div class="sd" style="position:absolute;top:-248px;left:-143px;width:286px;height:248px;background:url(img/max.png) no-repeat top center;border:none;z-index:100"></div>');
     for(var i=0;i<content.length;i++){//填充图表数据
         $(".max").append("<div class='content"+(i+1)+"' title='"+content[i][0]+":"+content[i][1]+"'><!--"+content[i][0]+"--></div><input id='content"+(i+1)+"' value='"+content[i][1]+"' />");
         $(".max div").eq(i).css("border-top-color",randomcolor());
         a="#content"+(i+1);
         c=".content"+(i+1);
         b=$(a)[0].value;
-        d=b/max*parseInt($(".max").css("border-top-width"));
-        e=b/max*parseInt($(".max").css("border-left-width"));
-        $(c).css("margin-left",-e);
-        $(c).animate({"border-top-width":d,"border-left-width":e,"border-right-width":e},750);
+        d=Math.floor(b/max*parseInt($(".max").css("border-top-width")));
+        e=Math.floor(b/max*parseInt($(".max").css("border-left-width")));
+        $(c).css({"border-top-width":d,"border-left-width":e,"border-right-width":e,"margin-left":-e});
+        $(".sd").animate({"height":0},500)
     }
 }
 add();
