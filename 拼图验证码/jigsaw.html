@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>滑动拼图验证码</title>
+        <link rel="stylesheet" href="jigsaw.css">
+    </head>
+    <body>
+        <div id="jigsaw" style="position: relative">
+        </div>
+        <script src="jigsaw.js"></script>
+        <script>
+jigsaw.init(
+    document.getElementById('jigsaw'),
+    function () {
+        alert('suc')
+    }
+);
+        </script>
+    </body>
+</html>
