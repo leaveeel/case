@@ -9,6 +9,7 @@ var arr = [
     {t:'red'},
     {t:'sky'}
 ];
+var arrlen = arr.length;
 var rotate = {
     //角度
     round_deg : 0, 
@@ -34,6 +35,7 @@ var rotate = {
         });
         setTimeout(function(){
             self.enable = true;//转完后启用点击
+            console.log(index)
             console.log(arr[index].t);//返回值
         },time*1000);
     }
@@ -41,7 +43,7 @@ var rotate = {
 $(document).ready(function(){
     $('.btn').click(function(){
         if(rotate.enable){
-            rotate.turn(Math.floor(Math.random()*9));
+            rotate.turn(Math.floor(Math.random() * arrlen));
         }
     });
 });
