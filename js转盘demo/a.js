@@ -13,15 +13,11 @@ var rotate = {
     //角度
     round_deg : 0, 
     enable : true, 
-    turn:function(){
+    turn:function(index){
         var self = this,
-            ring = 2,
-            time = 1, 
-            index,
-            index_deg;
-
-        index = Math.floor(Math.random()*9);//回调
-        index_deg = index * 45;//选中的奖品所在角度
+            ring = 2,//圈
+            time = 1,//转动时间
+            index_deg = index * 45;//选中的奖品所在角度
 
         self.enable = false;//禁用点击
         self.round_deg =  self.round_deg - ring * 360 - self.round_deg % 360 - index_deg;//本身角度-圈数-复原到原点还需角度-奖品角度
@@ -38,14 +34,14 @@ var rotate = {
         });
         setTimeout(function(){
             self.enable = true;//转完后启用点击
-            console.log(arr[index-1].t);//返回值
+            console.log(arr[index].t);//返回值
         },time*1000);
     }
 }
 $(document).ready(function(){
     $('.btn').click(function(){
         if(rotate.enable){
-            rotate.turn();
+            rotate.turn(Math.floor(Math.random()*9));
         }
     });
 });
