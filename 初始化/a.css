@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+}
+body {
+    font-size: 0;
+    background-size: 100%;
+}
+ul, ol, li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.tac {
+    text-align: center;
+}
+.tar {
+    text-align: right;
+}
+.dn {
+    display: none;
+}
+.db {
+    display: block;
+}
+.dib {
+    display: inline-block;
+}
+.df {
+    display:box;
+    display:-moz-box;
+    display:flex;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+}
+.fw_w {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.jc_sb {
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+}
+.pr {
+    position: relative;
+}
+.pa {
+    position: absolute;
+}
+.pf {
+    position: fixed;
+}
+.cb {
+    clear: both;
+}
+.oh {
+    overflow: hidden;
+}
+.cover {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
