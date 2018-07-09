@@ -1,5 +1,6 @@
 ﻿# demo
-0. demo目录下记录case内的所有demo/关键字, 方便查找；<br />
+## demo目录下记录case内的所有demo/关键字, 方便查找；
+0. <a href="初始化">初始化</a>文件夹里集合了常用css样式和rem相关js，不定期更新<br />
 1. <a href="js转盘demo">js转盘</a><br />
 2. <a href="rem自适应flex布局demo">rem/flex布局</a><br />
 3. <a href="图片上传">基于webupload图片上传</a><br />
