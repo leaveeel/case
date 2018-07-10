@@ -1,6 +1,10 @@
 //动态更改比例，e.g. 此demo按750px设计图100px根字号画的，比例为7.5（100 = 750 / 7.5），∴html{font-size} = 屏幕宽度 / 7.5；
 var deviceWidth = parseInt(window.screen.width);
 $("html").css({"font-size":deviceWidth/7.5});
+window.onresize = function(){
+    var screenWidth = parseInt(window.screen.width);
+    $("html").css({"font-size":screenWidth/7.5});
+}
 
 function banner(){
     var len = $(".banner_box a").length,
