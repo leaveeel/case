@@ -24,6 +24,6 @@ a {
     box-sizing: border-box;
     border: 1px solid #eee;
 }
-.positive {
+#gamebox .positive {
     background-color: #f00;    
 }
