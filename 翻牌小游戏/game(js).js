@@ -61,6 +61,9 @@ function control (e) {
     }
     if (win.length === (b*b)) {
         alert('win!');
+        //胜利后自动进行下一关
+        //document.getElementById(c).innerHTML = ''
+        //game(a, b+1, c);
     }
 }
 function game(arm, size, game) {//臂长，行，列，dom
