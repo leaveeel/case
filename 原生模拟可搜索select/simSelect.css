@@ -1,0 +1,82 @@
+#sim * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 0;
+    font-style: normal;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+#select_main {
+    width: 600px;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid #999;
+    margin: auto;
+    font-size: 20px;
+    margin-bottom: 60px;
+    display: block;
+    position: relative;
+}
+#select_main p {
+    height: 58px;
+    width: 100%;
+    padding: 0 30px;
+    line-height: 58px;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    position: absolute;
+}
+#select_default {
+    color: rgb(204, 204, 204);
+    z-index: 2;
+}
+#select_list {
+    top: 59px;
+    left: -1px;
+    width: 600px;
+    border-right: 1px solid #999;
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background-color: #fff;
+    z-index: 5;
+    position: absolute;
+    overflow: hidden;
+    display:none;
+}
+#select_list ul {
+    max-height:300px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+#select_list ul li {
+    float: left;
+    width: 600px;
+    padding: 0 30px;
+    height: 60px;
+    line-height: 60px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+#select_list ul li:hover {
+    background: rgba(0,0,0,.3);
+}
+#select_shadow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+#select_search {
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 30px;
+    background: #ccc;
+}

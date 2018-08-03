@@ -75,4 +75,8 @@
 28. 手机uc浏览器打开极速模式，如果使用rem给html设置font-size的写法会不识别，可用js设置字号；<br />
 29. 从最后一个'/'开始获取文件名，不包含目录层级 location.pathname.substr(location.pathname.lastIndexOf("/") + 1);<br/>
 30. 将对象转换成字符串JSON.stringify(object);<br />
-31. 取x位小数 .toFixed(x);
+31. 取x位小数 .toFixed(x);<br />
+32. ie8不支持dom.classList方法，可用dom.className代替;<br />
+33. 在object外部调用ajax传值，在object内可以打印但获取不到，可用setTimeout处理；<br />
+34. 原生AJAX请求获得的字符串可以用构造函数转换成数组 //e.g. Function ('return (' + xmlhttp.responseText + ')')();<br />
+
