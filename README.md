@@ -42,6 +42,8 @@
 39. <a href="静态加载页面公共部分.js">公共部分异步加载</a><br />
 40. <a href="页面滚动到底部加载.js">页面滚动到底部事件/移动端翻页</a><br />
 41. <a href="首字母筛选.html">首字母筛选</a><br />
+42. <a href="原生模拟可搜索select">原生模拟可搜索select</a><br />
+43. <a href="touchtest">滑动验证</a><br />
 
 # tips
 
