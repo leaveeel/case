@@ -44,6 +44,7 @@
 41. <a href="首字母筛选.html">首字母筛选</a><br />
 42. <a href="原生模拟可搜索select">原生模拟可搜索select</a><br />
 43. <a href="touchtest">滑动验证</a><br />
+43. <a href="数组按文本归类排序.js">数组按文本归类排序</a><br />
 
 # tips
 
@@ -81,4 +82,4 @@
 32. ie8不支持dom.classList方法，可用dom.className代替;<br />
 33. 在object外部调用ajax传值，在object内可以打印但获取不到，可用setTimeout处理；<br />
 34. 原生AJAX请求获得的字符串可以用构造函数转换成数组 //e.g. Function ('return (' + xmlhttp.responseText + ')')();<br />
-
+35. react中将字符串转换成html标签可用dangerouslySetInnerHTML={{__html:str}}实现；e.g. <div dangerouslySetInnerHTML={{__html:this.state.contstr}} /><br />
