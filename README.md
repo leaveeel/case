@@ -82,4 +82,5 @@
 32. ie8不支持dom.classList方法，可用dom.className代替;<br />
 33. 在object外部调用ajax传值，在object内可以打印但获取不到，可用setTimeout处理；<br />
 34. 原生AJAX请求获得的字符串可以用构造函数转换成数组 //e.g. Function ('return (' + xmlhttp.responseText + ')')();<br />
-35. react中将字符串转换成html标签可用dangerouslySetInnerHTML={{__html:str}}实现；//e.g. div[dangerouslySetInnerHTML={{__html:this.state.contstr}}]<br />
+35. react中将字符串转换成html标签可用dangerouslySetInnerHTML={{__html:str}}实现；//e.g. `div[dangerouslySetInnerHTML={{__html:this.state.contstr}}]`
+36. 可使用+'str'将字符串转换为数字
