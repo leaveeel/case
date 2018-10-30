@@ -21,7 +21,7 @@
             const lessArr = [],
                 moreArr = [],
                 mid = arr[Math.floor(arr.length / 2)]
-            for (var i = 0; i < arr.length; i++) {
+            for (let i in arr) {
                 if (i === Math.floor(arr.length / 2)) continue
                 if (arr[i] < mid) {
                     lessArr.push(arr[i])
