@@ -47,6 +47,7 @@
 43. [数组按文本归类排序](数组按文本归类排序.js)
 44. [数组操作方法](Arr.js)
 45. [快速排序](quickSort.js)
+46. [cookies操作](cookie.js)
 
 # tips
 
