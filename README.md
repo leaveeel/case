@@ -87,3 +87,6 @@
 34. 原生AJAX请求获得的字符串可以用构造函数转换成数组 //e.g.```Function ('return (' + xmlhttp.responseText + ')')();```
 35. react中将字符串转换成html标签可用```dangerouslySetInnerHTML={{__html:str}}```实现；//e.g.```div[dangerouslySetInnerHTML={{__html:this.state.contstr}}]```
 36. 可使用`+str`将字符串转换为数字;
+37. 移动node节点使用`document.createDocumentFragment()`虚拟节点的方法优化js性能；
+38. 使用`transfotm`替换`margin`,`width`等属性优化js性能，减少重排；
+39. 动画效果可以使用`transition`, `requestAnimationFrame()`实现，`transition`的回调`TransitionEnd`需要做各浏览器兼容，也可以在`transition`方法内用`setTimeout`实现；
