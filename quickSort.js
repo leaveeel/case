@@ -1,37 +1,15 @@
-+(function() {
-    const arr = []
-    for (let i = 0; i < 10; i++) {
-        var text = ''
-        for (let j = 0; j < 4; j++) {
-            if (Math.random() * 10 < 5) {
-                text = text + String.fromCharCode(65 + Math.floor(Math.random() * (91 - 65)))
-            } else {
-                text = text + String.fromCharCode(97 + Math.floor(Math.random() * (123 - 97)))
-            }
-        }
-        arr.push(text)
+var arr = [5,6,4,2,9,7,3,0]
+function quick(arr,begin,end){
+    if(begin >= end) return;
+    let l=begin,r=end,temp=arr[begin]
+    while(l < r) {
+        while(l < r && arr[r] >= temp) r--;
+        while(l < r && arr[l] <= temp) l++;
+        [arr[l],arr[r]]=[arr[r],arr[l]]
     }
-    /*for (let i = 0; i < 10; i++) {
-        arr.push(Math.floor(Math.random() * 100))
-    }*/
-    console.log(arr)
-
-    const quickSort = (arr) => {
-        if (arr.length > 1) {
-            const lessArr = [],
-                moreArr = [],
-                mid = arr[Math.floor(arr.length / 2)]
-            for (let i in arr) {
-                if (i === Math.floor(arr.length / 2)) continue
-                if (arr[i] < mid) {
-                    lessArr.push(arr[i])
-                } else {
-                    moreArr.push(arr[i])
-                }
-            }
-            return quickSort(lessArr).concat([mid], quickSort(moreArr));
-        }
-        return arr
-    }
-    console.log(quickSort(arr))
-})()
+    [arr[begin],arr[l]]=[arr[l],arr[begin]]
+    quick(arr,begin,r-1)
+    quick(arr,l+1,end)
+}
+quick(arr,0,arr.length-1)
+console.log(arr)
